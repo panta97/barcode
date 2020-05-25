@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import CSVReader from 'react-csv-reader'
 import Barcode from './barcode'
@@ -36,9 +35,21 @@ function App() {
   return (
     <div>
       <CSVReader onFileLoaded={(data, _) => getData(data)} />
-      {labels.map(label => (
-        <Barcode>{label}</Barcode>
-      ))}
+
+      <div id="no-print">
+
+      <button onClick={() => window.print()}>PRINT</button>
+
+      <p>Click above button opens print preview with these words on page</p>
+
+      </div>
+
+
+      <div id="section-to-print">
+        {labels.map(label => (
+          <Barcode>{label}</Barcode>
+        ))}
+      </div>
     </div>
 
   );
