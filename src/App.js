@@ -9,7 +9,8 @@ import Barcode from './barcode'
 function App() {
 
 
-  const [labels, setLabels] = useState([])
+  const [labels, setLabels] = useState([]);
+  const [quantity, setQuantity] = useState(0);
 
   const getData = (data) => {
     var barcodes = []
@@ -28,7 +29,8 @@ function App() {
 
     }
 
-    setLabels(prevLabels => barcodes)
+    setQuantity(prevQuantity => data.length - 1);
+    setLabels(prevLabels => barcodes);
 
   };
 
@@ -37,16 +39,14 @@ function App() {
       <CSVReader onFileLoaded={(data, _) => getData(data)} />
 
       <div id="no-print">
-
       <button onClick={() => window.print()}>PRINT</button>
-
-      <p>Click above button opens print preview with these words on page</p>
-
       </div>
 
+      <h1>Etiquetas: {quantity}</h1>
 
       <div id="section-to-print">
-        {labels.map(label => (
+        {
+        labels.map(label => (
           <Barcode>{label}</Barcode>
         ))}
       </div>
