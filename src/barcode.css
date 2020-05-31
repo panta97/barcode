@@ -4,13 +4,16 @@ div {
 }
 
 .label {
-  /* box-sizing: content-box; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  background-color: white;
   font-size: 15px;
-  -webkit-print-color-adjust: exact;
   font-family: Arial;
   width: 15em;
   height: 15em;
   text-align: center;
+  margin: 2px;
 }
 
 .top {
@@ -79,4 +82,30 @@ div {
   width: 120px;
   height: 120px;
   margin: auto;
+}
+
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  header,footer {
+    display: none;
+  }
+
+  #section-to-print, #section-to-print * {
+    visibility: visible;
+  }
+
+  #section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .label {
+    display: block;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+  }
 }

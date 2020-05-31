@@ -4,13 +4,16 @@ import CSVReader from 'react-csv-reader'
 import Barcode from './barcode'
 
 
-
-
 function App() {
+  let barcodes = [];
+  const debug = true;
 
+  if (debug) {
+    barcodes = require('./tickets.json')
+  }
 
-  const [labels, setLabels] = useState([]);
-  const [quantity, setQuantity] = useState(0);
+  const [labels, setLabels] = useState(barcodes);
+  const [quantity, setQuantity] = useState(barcodes.length);
 
   const getData = (data) => {
     var barcodes = []
@@ -46,8 +49,8 @@ function App() {
 
       <div id="section-to-print">
         {
-        labels.map(label => (
-          <Barcode>{label}</Barcode>
+        labels.map((label, index) => (
+          <Barcode key={index}>{label}</Barcode>
         ))}
       </div>
     </div>

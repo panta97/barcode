@@ -1,19 +1,5 @@
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  header,footer { 
-    display: none; 
-  }
-
-  #section-to-print, #section-to-print * {
-    visibility: visible;
-  }
-
-  #section-to-print {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
+#section-to-print {
+  width: 90vw;
+  margin: 0 auto;
+  background-color: #EEEEEE;
 }
-

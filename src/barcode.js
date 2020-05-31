@@ -24,23 +24,22 @@ function Barcode(props) {
   };
 
   const formatedCode = getCode(props.children.code);
-  const qrSize = 140;
 
   return (
-      <div class="label">
-        <div class="top">
-          <div class="price">S/. {getPrice(props.children.price)}</div>
-          <div class="points">o {Math.round(props.children.price / 0.04)} Puntos</div>
+      <div className="label">
+        <div className="top">
+          <div className="price">S/. {getPrice(props.children.price)}</div>
+          <div className="points">o {Math.round(props.children.price / 0.04)} Puntos</div>
         </div>
-        <div class="left-bottom">
-          <div class="desc">{props.children.desc}</div>
-          <div class="size">T/. {props.children.size}</div>
+        <div className="left-bottom">
+          <div className="desc">{props.children.desc}</div>
+          <div className="size">T/. {props.children.size}</div>
         </div>
-        <div class="right-bottom">
-          <div class="m-code">{props.children.mCode}</div>
-          <div class="code">{formatedCode}</div>
-          <div class="qr-code">
-            <div class="qr">
+        <div className="right-bottom">
+          <div className="m-code">{props.children.mCode}</div>
+          <div className="code">{formatedCode}</div>
+          <div className="qr-code">
+            <div className="qr">
               <QRCode
                 value={formatedCode}
                 size={120}
