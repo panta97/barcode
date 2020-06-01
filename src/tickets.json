@@ -1,632 +1,551 @@
 [
   {
-    "price": 1.5,
-    "desc": "JUICE 97",
-    "size": "ST",
-    "mCode": "PEKAS",
-    "code": "5.34680.ST"
+    "price": 6,
+    "desc": "DIVINA",
+    "size": "2666",
+    "mCode": "4A37",
+    "code": "5.55034.ST",
+    "total": 0,
+    "type": 1
   },
   {
-    "price": 2.5,
-    "desc": "LACE X1 5645",
-    "size": "ST",
-    "mCode": "DROGUERIA",
-    "code": "5.38538.ST"
-  },
-  {
-    "price": 92.31,
-    "desc": "CASACA",
-    "size": "M",
-    "mCode": "998",
-    "code": "6.40174.M"
-  },
-  {
-    "price": 2.5,
-    "desc": "KEISY 01",
-    "size": "ST",
-    "mCode": "SCORPIO",
-    "code": "5.40761.ST"
-  },
-  {
-    "price": 2.5,
-    "desc": "93",
-    "size": "ST",
-    "mCode": "93",
-    "code": "5.52074.ST"
-  },
-  {
-    "price": 2.5,
-    "desc": "ARI 17",
-    "size": "ST",
-    "mCode": "DIVINA",
-    "code": "5.55916.ST"
-  },
-  {
-    "price": 2.5,
-    "desc": "ARI 19",
-    "size": "ST",
-    "mCode": "DIVINA",
-    "code": "5.55918.ST"
-  },
-  {
-    "price": 0.1,
-    "desc": "CARTERA",
-    "size": "ST",
-    "mCode": "GB0541",
-    "code": "5.62287.ST"
-  },
-  {
-    "price": 1.5,
-    "desc": "2226",
-    "size": "ST",
-    "mCode": "2226",
-    "code": "5.64112.ST"
-  },
-  {
-    "price": 1.5,
-    "desc": "33166 BASIC",
-    "size": "ST",
-    "mCode": "33166",
-    "code": "5.67500.ST"
-  },
-  {
-    "price": 81.36,
-    "desc": "POLERA",
-    "size": "8",
-    "mCode": "",
-    "code": "4.70030.8"
-  },
-  {
-    "price": 81.36,
-    "desc": "POLERA",
-    "size": "10",
-    "mCode": "",
-    "code": "4.70030.10"
-  },
-  {
-    "price": 81.36,
-    "desc": "POLERA",
-    "size": "12",
-    "mCode": "",
-    "code": "4.70030.12"
-  },
-  {
-    "price": 81.36,
-    "desc": "POLERA",
-    "size": "14",
-    "mCode": "",
-    "code": "4.70030.14"
-  },
-  {
-    "price": 81.36,
-    "desc": "POLERA",
-    "size": "16",
-    "mCode": "",
-    "code": "4.70030.16"
-  },
-  {
-    "price": 81.36,
-    "desc": "POLERA",
-    "size": "S",
-    "mCode": "",
-    "code": "4.70030.S"
-  },
-  {
-    "price": 81.36,
-    "desc": "POLERA",
-    "size": "M",
-    "mCode": "",
-    "code": "4.70030.M"
-  },
-  {
-    "price": 77.27,
-    "desc": "POLERA",
-    "size": "6",
-    "mCode": "",
-    "code": "4.70030.6"
-  },
-  {
-    "price": 43.54,
-    "desc": "POLO",
-    "size": "4",
-    "mCode": "",
-    "code": "4.70032.4"
-  },
-  {
-    "price": 43.54,
-    "desc": "POLO",
-    "size": "6",
-    "mCode": "",
-    "code": "4.70032.6"
-  },
-  {
-    "price": 46.88,
-    "desc": "POLO",
-    "size": "8",
-    "mCode": "",
-    "code": "4.70032.8"
-  },
-  {
-    "price": 46.88,
-    "desc": "POLO",
-    "size": "10",
-    "mCode": "",
-    "code": "4.70032.10"
-  },
-  {
-    "price": 46.88,
-    "desc": "POLO",
-    "size": "12",
-    "mCode": "",
-    "code": "4.70032.12"
-  },
-  {
-    "price": 46.88,
-    "desc": "POLO",
-    "size": "14",
-    "mCode": "",
-    "code": "4.70032.14"
-  },
-  {
-    "price": 46.88,
-    "desc": "POLO",
-    "size": "16",
-    "mCode": "",
-    "code": "4.70032.16"
-  },
-  {
-    "price": 46.88,
-    "desc": "POLO",
-    "size": "S",
-    "mCode": "",
-    "code": "4.70032.S"
-  },
-  {
-    "price": 43.19,
-    "desc": "BUZO",
-    "size": "4",
-    "mCode": "",
-    "code": "4.70033.4"
-  },
-  {
-    "price": 43.19,
-    "desc": "BUZO",
-    "size": "6",
-    "mCode": "",
-    "code": "4.70033.6"
-  },
-  {
-    "price": 43.19,
-    "desc": "BUZO",
-    "size": "8",
-    "mCode": "",
-    "code": "4.70033.8"
-  },
-  {
-    "price": 49.35,
-    "desc": "BUZO",
-    "size": "10",
-    "mCode": "",
-    "code": "4.70033.10"
-  },
-  {
-    "price": 49.35,
-    "desc": "BUZO",
-    "size": "12",
-    "mCode": "",
-    "code": "4.70033.12"
-  },
-  {
-    "price": 49.35,
-    "desc": "BUZO",
-    "size": "14",
-    "mCode": "",
-    "code": "4.70033.14"
-  },
-  {
-    "price": 49.35,
-    "desc": "BUZO",
-    "size": "16",
-    "mCode": "",
-    "code": "4.70033.16"
-  },
-  {
-    "price": 49.35,
-    "desc": "BUZO",
-    "size": "S",
-    "mCode": "",
-    "code": "4.70033.S"
-  },
-  {
-    "price": 90.71,
-    "desc": "POLERA",
-    "size": "8",
-    "mCode": "",
-    "code": "6.70035.8"
-  },
-  {
-    "price": 90.71,
-    "desc": "POLERA",
-    "size": "10",
-    "mCode": "",
-    "code": "6.70035.10"
-  },
-  {
-    "price": 90.72,
-    "desc": "POLERA",
-    "size": "12",
-    "mCode": "",
-    "code": "6.70035.12"
-  },
-  {
-    "price": 90.75,
-    "desc": "POLERA",
-    "size": "14",
-    "mCode": "",
-    "code": "6.70035.14"
-  },
-  {
-    "price": 90.75,
-    "desc": "POLERA",
-    "size": "16",
-    "mCode": "",
-    "code": "6.70035.16"
-  },
-  {
-    "price": 90.75,
-    "desc": "POLERA",
-    "size": "S",
-    "mCode": "",
-    "code": "6.70035.S"
-  },
-  {
-    "price": 129.99,
-    "desc": "POLERA",
-    "size": "M",
-    "mCode": "",
-    "code": "6.70035.M"
-  },
-  {
-    "price": 8.33,
-    "desc": "MEDIAS",
+    "price": 7,
+    "desc": "LICRA",
     "size": "06-Sep",
-    "mCode": "",
-    "code": "6.70036.6-9"
+    "mCode": "4A38",
+    "code": "3.5388.6-9",
+    "total": 12,
+    "type": 2
   },
   {
-    "price": 8.33,
-    "desc": "MEDIAS",
-    "size": "10A13",
-    "mCode": "",
-    "code": "6.70036.10A13"
+    "price": 8,
+    "desc": "LICRA",
+    "size": "Oct-13",
+    "mCode": "4A39",
+    "code": "3.5389.10-13",
+    "total": 3,
+    "type": 1
   },
   {
-    "price": 8.33,
-    "desc": "MEDIAS",
-    "size": "ST",
-    "mCode": "",
-    "code": "6.70036.ST"
+    "price": 125,
+    "desc": "TILSI INTERMEDIO",
+    "size": "31",
+    "mCode": "3241",
+    "code": "5.18041.31",
+    "total": 1,
+    "type": 1
   },
   {
-    "price": 43.38,
-    "desc": "POLO",
-    "size": "8",
-    "mCode": "",
-    "code": "6.70037.8"
+    "price": 105,
+    "desc": "GRETEL AZUL",
+    "size": "M",
+    "mCode": "2998",
+    "code": "5.18034.M",
+    "total": 2,
+    "type": 1
   },
   {
-    "price": 43.38,
-    "desc": "POLO",
-    "size": "10",
-    "mCode": "",
-    "code": "6.70037.10"
+    "price": 119,
+    "desc": "S/ CNT/PTL KATIXA VINO",
+    "size": "32",
+    "mCode": "22815",
+    "code": "5.18018.32",
+    "total": 3,
+    "type": 1
   },
   {
-    "price": 43.38,
-    "desc": "POLO",
-    "size": "12",
-    "mCode": "",
-    "code": "6.70037.12"
+    "price": 115,
+    "desc": "KATIXA BLUE S/ CNT/PTL",
+    "size": "32",
+    "mCode": "23547",
+    "code": "5.18017.32",
+    "total": 1,
+    "type": 1
   },
   {
-    "price": 43.38,
-    "desc": "POLO",
-    "size": "14",
-    "mCode": "",
-    "code": "6.70037.14"
-  },
-  {
-    "price": 43.38,
-    "desc": "POLO",
-    "size": "16",
-    "mCode": "",
-    "code": "6.70037.16"
-  },
-  {
-    "price": 43.38,
-    "desc": "POLO",
-    "size": "S",
-    "mCode": "",
-    "code": "6.70037.S"
-  },
-  {
-    "price": 39.5,
-    "desc": "BUZO",
-    "size": "6",
-    "mCode": "",
-    "code": "6.70038.6"
-  },
-  {
-    "price": 39.5,
-    "desc": "BUZO",
-    "size": "8",
-    "mCode": "",
-    "code": "6.70038.8"
-  },
-  {
-    "price": 39.5,
-    "desc": "BUZO",
-    "size": "10",
-    "mCode": "",
-    "code": "6.70038.10"
-  },
-  {
-    "price": 39.5,
-    "desc": "BUZO",
-    "size": "12",
-    "mCode": "",
-    "code": "6.70038.12"
-  },
-  {
-    "price": 39.5,
-    "desc": "BUZO",
-    "size": "14",
-    "mCode": "",
-    "code": "6.70038.14"
-  },
-  {
-    "price": 39.5,
-    "desc": "BUZO",
-    "size": "16",
-    "mCode": "",
-    "code": "6.70038.16"
-  },
-  {
-    "price": 39.5,
-    "desc": "BUZO",
-    "size": "S",
-    "mCode": "",
-    "code": "6.70038.S"
-  },
-  {
-    "price": 97.75,
-    "desc": "PANTALON",
-    "size": "8",
-    "mCode": "",
-    "code": "6.70039.8"
-  },
-  {
-    "price": 97.75,
-    "desc": "PANTALON",
-    "size": "10",
-    "mCode": "",
-    "code": "6.70039.10"
-  },
-  {
-    "price": 97.75,
-    "desc": "PANTALON",
-    "size": "12",
-    "mCode": "",
-    "code": "6.70039.12"
-  },
-  {
-    "price": 97.75,
-    "desc": "PANTALON",
-    "size": "14",
-    "mCode": "",
-    "code": "6.70039.14"
-  },
-  {
-    "price": 97.75,
-    "desc": "PANTALON",
-    "size": "16",
-    "mCode": "",
-    "code": "6.70039.16"
-  },
-  {
-    "price": 97.75,
-    "desc": "PANTALON",
+    "price": 115,
+    "desc": "KATIXA BLUE S/ CNT/PTL",
     "size": "28",
-    "mCode": "",
-    "code": "6.70039.28"
+    "mCode": "23547",
+    "code": "5.18017.28",
+    "total": 2,
+    "type": 1
   },
   {
-    "price": 97.75,
-    "desc": "PANTALON",
+    "price": 99,
+    "desc": "JEAN SOFT RONALD DARK APPLE",
+    "size": "38",
+    "mCode": "14074",
+    "code": "6.932.38",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 99,
+    "desc": "JEAN SOFT RONALD SLATE",
+    "size": "38",
+    "mCode": "13653",
+    "code": "6.900.38",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 99,
+    "desc": "JEAN SOFT RONALD ECO SAND",
+    "size": "38",
+    "mCode": "13697",
+    "code": "6.897.38",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 99,
+    "desc": "JEAN SOFT RONALD CELESTE",
     "size": "30",
-    "mCode": "",
-    "code": "6.70039.30"
+    "mCode": "13699",
+    "code": "6.6492.30",
+    "total": 3,
+    "type": 1
   },
   {
-    "price": 97.76,
-    "desc": "PANTALON",
-    "size": "32",
-    "mCode": "",
-    "code": "6.70039.32"
+    "price": 35,
+    "desc": "ALEJANDRO + CAJA",
+    "size": "16",
+    "mCode": "3SLSL007",
+    "code": "6.17983.16",
+    "total": 1,
+    "type": 1
   },
   {
-    "price": 69.9,
-    "desc": "SISAK III NEGRO",
-    "size": "XL",
-    "mCode": "506268NE",
-    "code": "5.70690.XL"
-  },
-  {
-    "price": 125.5,
-    "desc": "XALOME III INTERMEDIO",
+    "price": 35,
+    "desc": "BASIC MELANGE",
     "size": "S",
-    "mCode": "509207INT",
-    "code": "5.70703.S"
+    "mCode": "3.00E+00",
+    "code": "6.31173.S",
+    "total": 2,
+    "type": 1
   },
   {
-    "price": 119.9,
-    "desc": "MATEO V BLANCO",
-    "size": "32",
-    "mCode": "509723BL",
-    "code": "5.70707.32"
+    "price": 79,
+    "desc": "LADENA II SALMON",
+    "size": "XS",
+    "mCode": "502074",
+    "code": "5.31162.XS",
+    "total": 3,
+    "type": 1
   },
   {
-    "price": 59.9,
-    "desc": "ANDREA",
-    "size": "M",
-    "mCode": "",
-    "code": "5.70820.M"
-  },
-  {
-    "price": 2.5,
-    "desc": "AM-127",
-    "size": "ST",
-    "mCode": "",
-    "code": "5.78224.ST"
-  },
-  {
-    "price": 6.5,
-    "desc": "7105-E",
-    "size": "ST",
-    "mCode": "",
-    "code": "5.78236.ST"
-  },
-  {
-    "price": 3.5,
-    "desc": "B-20 X3",
-    "size": "ST",
-    "mCode": "",
-    "code": "5.78454.ST"
-  },
-  {
-    "price": 2.5,
-    "desc": "B-24 X4",
-    "size": "ST",
-    "mCode": "",
-    "code": "5.78459.ST"
-  },
-  {
-    "price": 1.5,
-    "desc": "B-28",
-    "size": "ST",
-    "mCode": "",
-    "code": "5.78464.ST"
-  },
-  {
-    "price": 0.2,
-    "desc": "PLASTICO (LEY Nº 30884)",
-    "size": "ST",
-    "mCode": "",
-    "code": "1.80396.ST"
-  },
-  {
-    "price": 57.87,
-    "desc": "OXFORD",
+    "price": 79,
+    "desc": "LADENA II SALMON",
     "size": "S",
-    "mCode": "",
-    "code": "6.80802.S"
+    "mCode": "502074",
+    "code": "5.31162.S",
+    "total": 1,
+    "type": 1
   },
   {
-    "price": 57.87,
-    "desc": "OXFORD",
-    "size": "M",
-    "mCode": "",
-    "code": "6.80802.M"
+    "price": 79,
+    "desc": "LADENA II NEGRO",
+    "size": "S",
+    "mCode": "502074",
+    "code": "5.31161.S",
+    "total": 2,
+    "type": 1
   },
   {
-    "price": 57.87,
-    "desc": "OXFORD",
+    "price": 85,
+    "desc": "KADENS II BLANCO",
+    "size": "XS",
+    "mCode": "504004",
+    "code": "5.31097.XS",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 85,
+    "desc": "KADENS II BLANCO",
+    "size": "S",
+    "mCode": "504004",
+    "code": "5.31097.S",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 85,
+    "desc": "KADENS II AZUL",
     "size": "L",
-    "mCode": "",
-    "code": "6.80802.L"
+    "mCode": "504004",
+    "code": "5.31096.L",
+    "total": 2,
+    "type": 1
   },
   {
-    "price": 57.87,
-    "desc": "OXFORD",
-    "size": "XL",
-    "mCode": "",
-    "code": "6.80802.XL"
-  },
-  {
-    "price": 57.87,
-    "desc": "OXFORD",
-    "size": "3XL",
-    "mCode": "",
-    "code": "6.80802.3XL"
-  },
-  {
-    "price": 57.87,
-    "desc": "OXFORT PRINCESA",
+    "price": 85,
+    "desc": "KADENS II AZUL",
     "size": "S",
-    "mCode": "",
-    "code": "5.80803.S"
+    "mCode": "504004",
+    "code": "5.31096.S",
+    "total": 3,
+    "type": 1
   },
   {
-    "price": 57.87,
-    "desc": "OXFORT PRINCESA",
+    "price": 85,
+    "desc": "KADENS II AZUL",
     "size": "M",
-    "mCode": "",
-    "code": "5.80803.M"
+    "mCode": "504004",
+    "code": "5.31096.M",
+    "total": 1,
+    "type": 1
   },
   {
-    "price": 57.87,
-    "desc": "OXFORT PRINCESA",
+    "price": 85,
+    "desc": "KADENS II AZUL",
+    "size": "XS",
+    "mCode": "504004",
+    "code": "5.31096.XS",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 125,
+    "desc": "JEAN HIGH STCH CNT/RCT SELMITH BEIGE",
+    "size": "30",
+    "mCode": "11-25565",
+    "code": "5.47669.30",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 39,
+    "desc": "MOTTO CI14 BLANCO",
     "size": "L",
-    "mCode": "",
-    "code": "5.80803.L"
+    "mCode": "252105025BL",
+    "code": "6.17821.L",
+    "total": 1,
+    "type": 1
   },
   {
-    "price": 57.87,
-    "desc": "OXFORT PRINCESA",
-    "size": "XL",
-    "mCode": "",
-    "code": "5.80803.XL"
+    "price": 15,
+    "desc": "INTERIOR",
+    "size": "L",
+    "mCode": "10153",
+    "code": "5.31072.L",
+    "total": 2,
+    "type": 1
   },
   {
-    "price": 57.87,
-    "desc": "OXFORD",
-    "size": "ST",
-    "mCode": "",
-    "code": "6.80802.ST"
+    "price": 15,
+    "desc": "INTERIOR",
+    "size": "S",
+    "mCode": "10153",
+    "code": "5.31072.S",
+    "total": 3,
+    "type": 1
   },
   {
-    "price": 57.87,
-    "desc": "OXFORT PRINCESA",
-    "size": "ST",
-    "mCode": "",
-    "code": "5.80803.ST"
+    "price": 15,
+    "desc": "INTERIOR",
+    "size": "M",
+    "mCode": "10153",
+    "code": "5.31072.M",
+    "total": 1,
+    "type": 1
   },
   {
-    "price": 69.16,
-    "desc": "M/L",
-    "size": "ST",
-    "mCode": "",
-    "code": "6.81839.ST"
+    "price": 25,
+    "desc": "BOXER MICROFIBRA C/VENAS",
+    "size": "L",
+    "mCode": "1200",
+    "code": "6.17812.L",
+    "total": 2,
+    "type": 1
   },
   {
-    "price": 99.9,
-    "desc": "3406-N",
+    "price": 25,
+    "desc": "BOXER MICROFIBRA C/VENAS",
+    "size": "M",
+    "mCode": "1200",
+    "code": "6.17812.M",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 99,
+    "desc": "DENIM SOFT 1066 DARK GRAY",
+    "size": "40",
+    "mCode": "2912",
+    "code": "6.6027.40",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 99,
+    "desc": "DENIM SOFT 1066 NEGRO",
+    "size": "36",
+    "mCode": "2033",
+    "code": "6.6029.36",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 99,
+    "desc": "DENIM SOFT 1066 NEGRO",
+    "size": "40",
+    "mCode": "2033",
+    "code": "6.6029.40",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 40,
+    "desc": "DENIM SOFT 1066 STRONG B.",
+    "size": "40",
+    "mCode": "2903",
+    "code": "6.6030.40",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 115,
+    "desc": "TWILL COMFORT 1061 LIZARD",
+    "size": "30",
+    "mCode": "3107",
+    "code": "6.6040.30",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 115,
+    "desc": "TWILL COMFORT 1061 CHARCOL",
     "size": "34",
-    "mCode": "",
-    "code": "5.88605.34"
+    "mCode": "3108",
+    "code": "6.6041.34",
+    "total": 3,
+    "type": 1
   },
   {
-    "price": 2.5,
-    "desc": "88",
-    "size": "ST",
-    "mCode": "",
-    "code": "5.88953.ST"
+    "price": 99,
+    "desc": "TWILL BARZA 1062 BEIGE",
+    "size": "36",
+    "mCode": "1529",
+    "code": "6.6053.36",
+    "total": 1,
+    "type": 1
   },
   {
-    "price": 2.5,
-    "desc": "7",
-    "size": "ST",
-    "mCode": "",
-    "code": "5.89059.ST"
+    "price": 99,
+    "desc": "TWILL BARZA 1062 NEGRO",
+    "size": "30",
+    "mCode": "1837",
+    "code": "6.6054.30",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 99,
+    "desc": "TWILL BARZA 1062 NEGRO",
+    "size": "36",
+    "mCode": "1837",
+    "code": "6.6054.36",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 79,
+    "desc": "LOS ROQUES SALMON",
+    "size": "L",
+    "mCode": "DKDA04799",
+    "code": "5.31008.L",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 79,
+    "desc": "LOS ROQUES SALMON",
+    "size": "M",
+    "mCode": "DKDA04799",
+    "code": "5.31008.M",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 99,
+    "desc": "TWILL BARZA 1062 BLANCO",
+    "size": "30",
+    "mCode": "2415",
+    "code": "6.6059.30",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 115,
+    "desc": "JOGGER BEIGE",
+    "size": "34",
+    "mCode": "DKCA04152",
+    "code": "6.30992.34",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 115,
+    "desc": "JOGGER BEIGE",
+    "size": "30",
+    "mCode": "DKCA04152",
+    "code": "6.30992.30",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 79,
+    "desc": "LOS ROQUES BEIGE",
+    "size": "L",
+    "mCode": "DKDA04799",
+    "code": "5.30989.L",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 79,
+    "desc": "LOS ROQUES BEIGE",
+    "size": "M",
+    "mCode": "DKDA04799",
+    "code": "5.30989.M",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 119,
+    "desc": "CHOMPA",
+    "size": "M",
+    "mCode": "CAR-3909CH",
+    "code": "6.17771.M",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 75,
+    "desc": "BALSA HUESO",
+    "size": "S",
+    "mCode": "DKDA04777",
+    "code": "5.30986.S",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 75,
+    "desc": "BALSA HUESO",
+    "size": "M",
+    "mCode": "DKDA04777",
+    "code": "5.30986.M",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 299,
+    "desc": "BORIS NEGRO",
+    "size": "40",
+    "mCode": "TE3289",
+    "code": "6.17770.40",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 115,
+    "desc": "RABER BLACK",
+    "size": "43",
+    "mCode": "1143",
+    "code": "6.30969.43",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 115,
+    "desc": "RABER BLACK",
+    "size": "42",
+    "mCode": "1143",
+    "code": "6.30969.42",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 79,
+    "desc": "LONDON NEGRO",
+    "size": "36",
+    "mCode": "P01459",
+    "code": "6.17760.36",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 79,
+    "desc": "GUIDO NEGRO",
+    "size": "30",
+    "mCode": "P01377",
+    "code": "6.17753.30",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 102,
+    "desc": "DANUZKA MORA SLABS SKNY TW/SCAD",
+    "size": "30",
+    "mCode": "20629 STGK091015",
+    "code": "5.30942.30",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 68,
+    "desc": "REVERSE NEGRO TW/S TBAJO SKN",
+    "size": "26",
+    "mCode": "20008 STGK091015",
+    "code": "5.30932.26",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 109,
+    "desc": "XIMENA VERDE SELVA RECT TW/SSEM",
+    "size": "32",
+    "mCode": "21225 STGK091015",
+    "code": "5.30938.32",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 115,
+    "desc": "MILANO REGULAR HUMO JEANS",
+    "size": "28",
+    "mCode": "FH10-049",
+    "code": "6.17739.28",
+    "total": 1,
+    "type": 1
+  },
+  {
+    "price": 45,
+    "desc": "GARY NARANJA",
+    "size": "S",
+    "mCode": "502040",
+    "code": "5.15110.S",
+    "total": 2,
+    "type": 1
+  },
+  {
+    "price": 30,
+    "desc": "ABRIL",
+    "size": "M",
+    "mCode": "51GOC1527 STGK091015",
+    "code": "5.30916.M",
+    "total": 3,
+    "type": 1
+  },
+  {
+    "price": 20,
+    "desc": "MIRNA",
+    "size": "L",
+    "mCode": "66444 STGK091015",
+    "code": "5.30917.L",
+    "total": 1,
+    "type": 1
   }
- ]
+]

@@ -1,5 +1,6 @@
 #section-to-print {
   width: 90vw;
-  margin: 0 auto;
   background-color: #EEEEEE;
+  margin: 0 auto;
+  padding: 1em;
 }

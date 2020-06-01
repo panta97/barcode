@@ -3,60 +3,62 @@ div {
   box-sizing: border-box;
 }
 
-.label {
+/* TYPE ONE */
+
+.type-one {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
+  margin: 2px;
   background-color: white;
   font-size: 15px;
   font-family: Arial;
   width: 15em;
   height: 15em;
   text-align: center;
-  margin: 2px;
 }
 
-.top {
+.type-one .top {
   background-color: black;
   color: white;
   height: 25%;
   font-weight: bold;
 }
 
-.price {
+.type-one .price {
   font-size: 2.2em;
   height: 65%;
   padding: 0.1em 0;
 }
 
-.points {
+.type-one .points {
   font-size: 0.8em;
   height: 35%;
   padding-top: 0.2em;
 }
 
-[class$="-bottom"] {
+.type-one [class$="-bottom"] {
   height: 75%;
 }
 
-.left-bottom {
+.type-one .left-bottom {
   float: left;
   width: 40%;
   padding: .2em 0;
 }
 
-.desc {
+.type-one .desc {
   height: 90%;
   line-height: 1.3;
   overflow: hidden;
   word-break: break-all;
 }
 
-.size {
+.type-one .size {
   height: 10%;
 }
 
-.right-bottom {
+.type-one .right-bottom {
   float: right;
   width: 60%;
   padding-top: .2em;
@@ -64,23 +66,63 @@ div {
   font-weight: 700;
 }
 
-.m-code {
+.type-one .m-code {
   overflow: hidden;
   height: 10%;
 }
 
-.code {
+.type-one .code {
   height: 10%;
 }
 
-.qr-code {
+.type-one .qr-code {
   height: 80%;
   padding: 0.2em 0;
 }
 
-.qr {
+.type-one .qr {
   width: 120px;
   height: 120px;
+  margin: auto;
+}
+
+
+/* TYPE TWO */
+
+.type-two {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  margin: 2px;
+  background-color: white;
+  font-size: 13px;
+  width: 188.97637795px;
+  height: 94.488188976px;
+  padding: 0 .5em;
+  border-radius: 1em;
+}
+
+.type-two > div {
+  float: left;
+  width: calc(4.8em - 0.375em);
+  height: 100%;
+}
+
+.type-two .price {
+  padding-top: .9em;
+  text-align: center;
+  letter-spacing: -.06em;
+  height: 35%;
+}
+
+.type-two .micro-qr {
+/*   padding: .2em; */
+  height: 65%;
+}
+
+.type-two .qr {
+  height: 3.5em;
+  width: 3.5em;
   margin: auto;
 }
 
@@ -103,7 +145,13 @@ div {
     top: 0;
   }
 
-  .label {
+  .type-one  {
+    display: block;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .type-two  {
     display: block;
     margin: 0;
     -webkit-print-color-adjust: exact;
