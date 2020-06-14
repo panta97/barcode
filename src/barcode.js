@@ -63,7 +63,7 @@ function Barcode(props) {
                 value={props.label.code}
                 scale={5}
                 size={45.5}
-                id={`${props.id}-left`}
+                id={`${props.id}-l`}
               ></MicroQR>
             </div>
           </div>
@@ -77,7 +77,7 @@ function Barcode(props) {
                 value={props.label.code}
                 scale={5}
                 size={45.5}
-                id={`${props.id}-middle`}
+                id={`${props.id}-m`}
               ></MicroQR>
             </div>
           </div>
@@ -91,7 +91,7 @@ function Barcode(props) {
                 value={props.label.code}
                 scale={5}
                 size={45.5}
-                id={`${props.id}-right`}
+                id={`${props.id}-r`}
               ></MicroQR>
             </div>
           </div>

@@ -32,11 +32,15 @@ function App() {
   }
   // end
 
+  const [inputKey, setInputKey] = useState('22');
 
   const [labels, setLabels] = useState(barcodes);
   const [quantity, setQuantity] = useState(barcodes.length);
 
-  const getData = (data) => {
+  const [filename, setFilename] = useState('');
+
+
+  const getData = (data, fileInfo) => {
     var barcodes = []
 
     for (let i = 1; i < data.length; i++) {
@@ -60,11 +64,21 @@ function App() {
     setQuantity(prevQuantity => barcodes.length);
     setLabels(prevLabels => barcodes);
 
+    const randomString = Math.random().toString(36);
+    setInputKey(prevInputKey => randomString);
+
+    setFilename(prevFilename => fileInfo.name);
+
   };
 
   return (
     <div>
-      <CSVReader onFileLoaded={(data, _) => getData(data)} />
+      <div key={inputKey} className="file-container">
+        <CSVReader inputId="file-upload" onFileLoaded={(data, fileInfo) => getData(data, fileInfo)} />
+        <div className="mask">
+        {filename}
+        </div>
+      </div>
 
       <div id="no-print">
       <button onClick={() => window.print()}>PRINT</button>
