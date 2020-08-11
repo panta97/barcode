@@ -5,26 +5,26 @@
     "size": "2666",
     "mCode": "4A37",
     "code": "5.55034.ST",
-    "total": 0,
-    "type": 1
+    "total": 1,
+    "type": "1"
   },
   {
     "price": 7,
     "desc": "LICRA",
-    "size": "06-Sep",
+    "size": "6-9",
     "mCode": "4A38",
     "code": "3.5388.6-9",
-    "total": 12,
-    "type": 2
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 8,
     "desc": "LICRA",
-    "size": "Oct-13",
+    "size": "10-13",
     "mCode": "4A39",
     "code": "3.5389.10-13",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "4"
   },
   {
     "price": 125,
@@ -33,7 +33,7 @@
     "mCode": "3241",
     "code": "5.18041.31",
     "total": 1,
-    "type": 1
+    "type": "4"
   },
   {
     "price": 105,
@@ -41,8 +41,8 @@
     "size": "M",
     "mCode": "2998",
     "code": "5.18034.M",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "2"
   },
   {
     "price": 119,
@@ -50,8 +50,8 @@
     "size": "32",
     "mCode": "22815",
     "code": "5.18018.32",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 115,
@@ -60,7 +60,7 @@
     "mCode": "23547",
     "code": "5.18017.32",
     "total": 1,
-    "type": 1
+    "type": "4"
   },
   {
     "price": 115,
@@ -68,8 +68,8 @@
     "size": "28",
     "mCode": "23547",
     "code": "5.18017.28",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 99,
@@ -77,8 +77,8 @@
     "size": "38",
     "mCode": "14074",
     "code": "6.932.38",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 99,
@@ -87,7 +87,7 @@
     "mCode": "13653",
     "code": "6.900.38",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 99,
@@ -95,8 +95,8 @@
     "size": "38",
     "mCode": "13697",
     "code": "6.897.38",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 99,
@@ -104,8 +104,8 @@
     "size": "30",
     "mCode": "13699",
     "code": "6.6492.30",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "2"
   },
   {
     "price": 35,
@@ -114,7 +114,7 @@
     "mCode": "3SLSL007",
     "code": "6.17983.16",
     "total": 1,
-    "type": 1
+    "type": "2"
   },
   {
     "price": 35,
@@ -122,8 +122,8 @@
     "size": "S",
     "mCode": "3.00E+00",
     "code": "6.31173.S",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 79,
@@ -131,8 +131,8 @@
     "size": "XS",
     "mCode": "502074",
     "code": "5.31162.XS",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 79,
@@ -141,7 +141,7 @@
     "mCode": "502074",
     "code": "5.31162.S",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 79,
@@ -149,8 +149,8 @@
     "size": "S",
     "mCode": "502074",
     "code": "5.31161.S",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 85,
@@ -158,8 +158,8 @@
     "size": "XS",
     "mCode": "504004",
     "code": "5.31097.XS",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 85,
@@ -168,7 +168,7 @@
     "mCode": "504004",
     "code": "5.31097.S",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 85,
@@ -176,8 +176,8 @@
     "size": "L",
     "mCode": "504004",
     "code": "5.31096.L",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 85,
@@ -185,8 +185,8 @@
     "size": "S",
     "mCode": "504004",
     "code": "5.31096.S",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 85,
@@ -195,7 +195,7 @@
     "mCode": "504004",
     "code": "5.31096.M",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 85,
@@ -203,8 +203,8 @@
     "size": "XS",
     "mCode": "504004",
     "code": "5.31096.XS",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 125,
@@ -212,8 +212,8 @@
     "size": "30",
     "mCode": "11-25565",
     "code": "5.47669.30",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 39,
@@ -222,7 +222,7 @@
     "mCode": "252105025BL",
     "code": "6.17821.L",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 15,
@@ -230,8 +230,8 @@
     "size": "L",
     "mCode": "10153",
     "code": "5.31072.L",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 15,
@@ -239,8 +239,8 @@
     "size": "S",
     "mCode": "10153",
     "code": "5.31072.S",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 15,
@@ -249,7 +249,7 @@
     "mCode": "10153",
     "code": "5.31072.M",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 25,
@@ -257,8 +257,8 @@
     "size": "L",
     "mCode": "1200",
     "code": "6.17812.L",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 25,
@@ -266,8 +266,8 @@
     "size": "M",
     "mCode": "1200",
     "code": "6.17812.M",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 99,
@@ -276,7 +276,7 @@
     "mCode": "2912",
     "code": "6.6027.40",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 99,
@@ -284,8 +284,8 @@
     "size": "36",
     "mCode": "2033",
     "code": "6.6029.36",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 99,
@@ -293,8 +293,8 @@
     "size": "40",
     "mCode": "2033",
     "code": "6.6029.40",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 40,
@@ -303,7 +303,7 @@
     "mCode": "2903",
     "code": "6.6030.40",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 115,
@@ -311,8 +311,8 @@
     "size": "30",
     "mCode": "3107",
     "code": "6.6040.30",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 115,
@@ -320,8 +320,8 @@
     "size": "34",
     "mCode": "3108",
     "code": "6.6041.34",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 99,
@@ -330,7 +330,7 @@
     "mCode": "1529",
     "code": "6.6053.36",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 99,
@@ -338,8 +338,8 @@
     "size": "30",
     "mCode": "1837",
     "code": "6.6054.30",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 99,
@@ -347,8 +347,8 @@
     "size": "36",
     "mCode": "1837",
     "code": "6.6054.36",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 79,
@@ -357,7 +357,7 @@
     "mCode": "DKDA04799",
     "code": "5.31008.L",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 79,
@@ -365,8 +365,8 @@
     "size": "M",
     "mCode": "DKDA04799",
     "code": "5.31008.M",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 99,
@@ -374,8 +374,8 @@
     "size": "30",
     "mCode": "2415",
     "code": "6.6059.30",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 115,
@@ -384,7 +384,7 @@
     "mCode": "DKCA04152",
     "code": "6.30992.34",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 115,
@@ -392,8 +392,8 @@
     "size": "30",
     "mCode": "DKCA04152",
     "code": "6.30992.30",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 79,
@@ -401,8 +401,8 @@
     "size": "L",
     "mCode": "DKDA04799",
     "code": "5.30989.L",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 79,
@@ -411,7 +411,7 @@
     "mCode": "DKDA04799",
     "code": "5.30989.M",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 119,
@@ -419,8 +419,8 @@
     "size": "M",
     "mCode": "CAR-3909CH",
     "code": "6.17771.M",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 75,
@@ -428,8 +428,8 @@
     "size": "S",
     "mCode": "DKDA04777",
     "code": "5.30986.S",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 75,
@@ -438,7 +438,7 @@
     "mCode": "DKDA04777",
     "code": "5.30986.M",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 299,
@@ -446,8 +446,8 @@
     "size": "40",
     "mCode": "TE3289",
     "code": "6.17770.40",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 115,
@@ -455,8 +455,8 @@
     "size": "43",
     "mCode": "1143",
     "code": "6.30969.43",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 115,
@@ -465,7 +465,7 @@
     "mCode": "1143",
     "code": "6.30969.42",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 79,
@@ -473,8 +473,8 @@
     "size": "36",
     "mCode": "P01459",
     "code": "6.17760.36",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 79,
@@ -482,8 +482,8 @@
     "size": "30",
     "mCode": "P01377",
     "code": "6.17753.30",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 102,
@@ -492,7 +492,7 @@
     "mCode": "20629 STGK091015",
     "code": "5.30942.30",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 68,
@@ -500,8 +500,8 @@
     "size": "26",
     "mCode": "20008 STGK091015",
     "code": "5.30932.26",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 109,
@@ -509,8 +509,8 @@
     "size": "32",
     "mCode": "21225 STGK091015",
     "code": "5.30938.32",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 115,
@@ -519,7 +519,7 @@
     "mCode": "FH10-049",
     "code": "6.17739.28",
     "total": 1,
-    "type": 1
+    "type": "3"
   },
   {
     "price": 45,
@@ -527,8 +527,8 @@
     "size": "S",
     "mCode": "502040",
     "code": "5.15110.S",
-    "total": 2,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 30,
@@ -536,8 +536,8 @@
     "size": "M",
     "mCode": "51GOC1527 STGK091015",
     "code": "5.30916.M",
-    "total": 3,
-    "type": 1
+    "total": 1,
+    "type": "3"
   },
   {
     "price": 20,
@@ -546,6 +546,6 @@
     "mCode": "66444 STGK091015",
     "code": "5.30917.L",
     "total": 1,
-    "type": 1
+    "type": "3"
   }
 ]

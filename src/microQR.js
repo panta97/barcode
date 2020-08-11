@@ -10,7 +10,7 @@ class MicroQR extends Component {
         bcid: this.props.codeType, // Barcode type
         text: this.props.value, // Text to encode
         scale: this.props.scale, // 3x scaling factor
-        includetext: true, // Show human-readable text
+        includetext: false, // Show human-readable text
         textxalign: "center", // Always good to set this
       };
 
@@ -23,7 +23,8 @@ class MicroQR extends Component {
 
   render() {
     let canvasStyle = {
-      width: this.props.size,
+      width: '100%',
+      height: '100%'
     };
     let canvasId =`${this.props.id}-canvas`;
     return <canvas id={canvasId} style={canvasStyle}></canvas>;

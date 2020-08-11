@@ -22,7 +22,7 @@ function Barcode(props) {
 
   const formatedCode = getCode(props.label.code);
 
-  if (props.label.type == 1) {
+  if (props.label.type === '-1') {
     return (
       <div className="type-one">
         <div className="top">
@@ -51,7 +51,7 @@ function Barcode(props) {
         </div>
       </div>
     );
-  } else if (props.label.type == 2) {
+  } else if (props.label.type === '-2') {
     return (
       <div className="type-two">
         <div>
@@ -97,6 +97,151 @@ function Barcode(props) {
           </div>
         </div>
       </div>
+    );
+  } else if (props.label.type === '1') {
+    return (
+      <div className="type-1">
+        <div className="container">
+        <h2 className="price">S/. {getPrice(props.label.price)}</h2>
+        <p className="cat">HOMBRE / POLO / PIONIER</p>
+        <p className="fa-code">{props.label.mCode}</p>
+        <p className="desc">{props.label.desc}</p>
+        <p className="attr">CELESTE - {props.label.size}</p>
+        <div className="barcode">
+        <MicroQR
+                  codeType={"code128"}
+                  value={formatedCode}
+                  scale={5}
+                  size={100}
+                  id={`${props.id}-r`}
+                ></MicroQR>
+        </div>
+        <p className="code">{formatedCode}</p>
+        </div>
+      </div>
+
+    );
+  } else if (props.label.type === '2') {
+    return (
+      <div className="type-2">
+      <div className="container">
+        <div className="left-side">
+          <h2 className="price">S/. {getPrice(props.label.price)}</h2>
+          <p className="cat">HOMBRE / POLO / PIONIER</p>
+          <p className="fa-code">{props.label.mCode}</p>
+          <p className="desc">{props.label.desc}</p>
+          <p className="attr">CELESTE - {props.label.size}</p>
+        </div>
+        <div className="right-side">
+          <div className="barcode">
+        <QRCode
+                value={formatedCode}
+                size={50}
+                level={"H"}
+                renderAs={"svg"}
+              ></QRCode>
+          </div>
+          <p className="code">{formatedCode}</p>
+        </div>
+      </div>
+    </div>
+    );
+  } else if (props.label.type === '3') {
+    return (
+      <div className="type-3">
+      <div className="container">
+            <div>
+        <h2 className="price">S/. {getPrice(props.label.price)}</h2>
+        <div className="barcode">
+        <MicroQR
+                codeType={"microqrcode"}
+                value={props.label.code}
+                scale={24}
+                size={100}
+                id={`${props.id}-l`}
+              ></MicroQR>
+        </div>
+        <p className="code">{formatedCode}</p>
+      </div>
+      <div>
+        <h2 className="price">S/. {getPrice(props.label.price)}</h2>
+        <div className="barcode">
+        <MicroQR
+                codeType={"microqrcode"}
+                value={props.label.code}
+                scale={24}
+                size={100}
+                id={`${props.id}-m`}
+              ></MicroQR>
+        </div>
+        <p className="code">{formatedCode}</p>
+      </div>
+      <div>
+        <h2 className="price">S/. {getPrice(props.label.price)}</h2>
+        <div className="barcode">
+        <MicroQR
+                codeType={"microqrcode"}
+                value={props.label.code}
+                scale={24}
+                size={100}
+                id={`${props.id}-r`}
+              ></MicroQR>
+
+        </div>
+        <p className="code">{formatedCode}</p>
+      </div>
+      </div>
+    </div>
+    );
+  } else if (props.label.type === '4') {
+    return (
+
+  <div class="type-4">
+    <div class="container">
+    <div class="block">
+      <h2 class="price">S/. {getPrice(props.label.price)}</h2>
+          <div class="barcode">
+          <MicroQR
+                  codeType={"code128"}
+                  value={formatedCode}
+                  scale={5}
+                  size={100}
+                  id={`${props.id}-l`}
+                ></MicroQR>
+          </div>
+          <p class="code">{formatedCode}</p>
+    </div>
+    <div class="block">
+      <h2 class="price">S/. {getPrice(props.label.price)}</h2>
+      <div class="barcode">
+      <MicroQR
+                  codeType={"code128"}
+                  value={formatedCode}
+                  scale={5}
+                  size={100}
+                  id={`${props.id}-m`}
+                ></MicroQR>
+      </div>
+          <p class="code">{formatedCode}</p>
+    </div>
+    <div class="block">
+      <h2 class="price">S/. {getPrice(props.label.price)}</h2>
+      <div class="barcode">
+      <MicroQR
+                  codeType={"code128"}
+                  value={formatedCode}
+                  scale={5}
+                  size={100}
+                  id={`${props.id}-r`}
+                ></MicroQR>
+      </div>
+          <p class="code">{formatedCode}</p>
+    </div>
+  </div>
+  </div>
+
+
+
     );
   }
 }
