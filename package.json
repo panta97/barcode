@@ -9,9 +9,10 @@
     "bwip-js": "^2.0.6",
     "qrcode.react": "^1.0.0",
     "react": "^16.13.1",
+    "react-barcode": "^1.4.0",
     "react-csv-reader": "^3.0.6",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "^3.4.2"
   },
   "scripts": {
     "start": "react-scripts start",

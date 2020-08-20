@@ -41,28 +41,74 @@ function App() {
 
 
   const getData = (data, fileInfo) => {
-    var barcodes = []
+    let labels = [];
 
-    for (let i = 1; i < data.length; i++) {
-      for (let j = 0; j < Number(data[i][5]); j++) {
+    class Label {
 
-        const element = data[i];
+      attrPristine(attr) {
+        // Some attr are undefined, specially the ones from the migration
+        if (!attr) return '';
+        // Color: Negro => Negro
+        return attr.split(' ')[1].toUpperCase();
+      }
 
-        var elementDetails = {
-          price : element[0],
-          desc : element[1],
-          size : element[2],
-          mCode : element[3],
-          code : element[4],
-          type : element[6]
-        }
-        barcodes.push(elementDetails);
+      currencyFormat(price) {
+        return `S/ ${Number(price).toFixed(2)}`;
+      }
 
+      constructor(quantity, code, desc, mCode, cats, price, attr){
+        this.code = code;
+        this.desc = desc;
+        this.mCode = mCode;
+        this.cats = cats;
+        this.price = this.currencyFormat(price);
+        this.attr = this.attrPristine(attr);
+        this.type = '1';
+
+        // Helper property after setting quantities
+        // this property will be 0
+        this.quantity = Number(quantity);
+      }
+
+      addAttr(attr) {
+        this.attr += ` - ${this.attrPristine(attr)}`;
       }
     }
 
-    setQuantity(prevQuantity => barcodes.length);
-    setLabels(prevLabels => barcodes);
+    // i starts at 1 to ommit the headers
+    // TEMP data.length - 1 because last row length is 1
+    for(let i=1; i<data.length; i++) {
+      const row = data[i];
+      /*
+      row[2] => QUANTITY
+      row[3] => CODE
+      row[4] => DESCRIPCION
+      row[5] => MANUFACTURE CODE
+      row[6] => CATEGORIES
+      row[7] => PRICE
+      row[8] => ATTRIBUTE
+      */
+     if(row.slice(0,8).join('') === '') {
+       // Get last pushed item
+       labels[labels.length-1].addAttr(row[8]);
+      } else {
+        labels.push(new Label(row[2], row[3], row[4], row[5], row[6], row[7], row[8]));
+      }
+    }
+
+
+    // set quantities
+    let labelsQ = [];
+    for(let i = 0; i< labels.length; i++) {
+      let label = labels[i];
+      while(label.quantity > 0) {
+        labelsQ.push(label);
+        label.quantity -= 1;
+      }
+    }
+
+    setQuantity(prevQuantity => labelsQ.length);
+    setLabels(prevLabels => labelsQ);
 
     const randomString = Math.random().toString(36);
     setInputKey(prevInputKey => randomString);
