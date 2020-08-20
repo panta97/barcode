@@ -40,7 +40,7 @@ function App() {
   const [filename, setFilename] = useState('');
 
 
-  const getData = (data, fileInfo) => {
+  const getLabel = (data, csvType) => {
     let labels = [];
 
     class Label {
@@ -75,27 +75,63 @@ function App() {
       }
     }
 
-    // i starts at 1 to ommit the headers
-    // TEMP data.length - 1 because last row length is 1
-    for(let i=1; i<data.length; i++) {
-      const row = data[i];
-      /*
-      row[2] => QUANTITY
-      row[3] => CODE
-      row[4] => DESCRIPCION
-      row[5] => MANUFACTURE CODE
-      row[6] => CATEGORIES
-      row[7] => PRICE
-      row[8] => ATTRIBUTE
-      */
-     if(row.slice(0,8).join('') === '') {
-       // Get last pushed item
-       labels[labels.length-1].addAttr(row[8]);
-      } else {
-        labels.push(new Label(row[2], row[3], row[4], row[5], row[6], row[7], row[8]));
+
+    if (csvType === 'INGRESAR') {
+      // i starts at 1 to skip the headers
+      // TEMP data.length - 1 because last row length is 1
+      for(let i=1; i<data.length; i++) {
+        const row = data[i];
+        /*
+        row[2] => QUANTITY
+        row[3] => CODE
+        row[4] => DESCRIPCION
+        row[5] => MANUFACTURE CODE
+        row[6] => CATEGORIES
+        row[7] => PRICE
+        row[8] => ATTRIBUTE
+        */
+      if(row.slice(0,8).join('') === '') {
+        // Get last pushed item
+        labels[labels.length-1].addAttr(row[8]);
+        } else {
+          labels.push(new Label(row[2], row[3], row[4], row[5], row[6], row[7], row[8]));
+        }
+      }
+    } else if (csvType === 'REPO') {
+      // i starts at 1 to skip the headers
+      // TEMP data.length - 1 because last row length is 1
+      for(let i=1; i<data.length; i++) {
+        const row = data[i];
+        /*
+        1 => QUANTITY
+        row[1] => CODE
+        row[2] => DESCRIPCION
+        row[3] => MANUFACTURE CODE
+        row[4] => CATEGORIES
+        row[5] => PRICE
+        row[6] => ATTRIBUTE
+        */
+      if(row.slice(0,6).join('') === '') {
+        // Get last pushed item
+        labels[labels.length-1].addAttr(row[6]);
+        } else {
+          labels.push(new Label(1, row[1], row[2], row[3], row[4], row[5], row[6]));
+        }
       }
     }
 
+    return labels;
+  }
+
+  const getData = (data, fileInfo) => {
+
+    let lblType = ''
+    if (data[0].length === 9)
+      lblType = 'INGRESAR'
+    else if (data[0].length === 7)
+      lblType = 'REPO'
+
+    let labels = getLabel(data, lblType)
 
     // set quantities
     let labelsQ = [];
