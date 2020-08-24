@@ -49,7 +49,7 @@ function App() {
         // Some attr are undefined, specially the ones from the migration
         if (!attr) return '';
         // Color: Negro => Negro
-        return attr.split(' ')[1].toUpperCase();
+        return attr.split(':')[1].trim().toUpperCase();
       }
 
       currencyFormat(price) {
@@ -79,7 +79,7 @@ function App() {
     if (csvType === 'INGRESAR') {
       // i starts at 1 to skip the headers
       // TEMP data.length - 1 because last row length is 1
-      for(let i=1; i<data.length; i++) {
+      for(let i=1; i<data.length-1; i++) {
         const row = data[i];
         /*
         row[2] => QUANTITY
@@ -97,10 +97,10 @@ function App() {
           labels.push(new Label(row[2], row[3], row[4], row[5], row[6], row[7], row[8]));
         }
       }
-    } else if (csvType === 'REPO') {
+    } else if (csvType === 'REPO-CON-ATTR') {
       // i starts at 1 to skip the headers
       // TEMP data.length - 1 because last row length is 1
-      for(let i=1; i<data.length; i++) {
+      for(let i=1; i<data.length-1; i++) {
         const row = data[i];
         /*
         1 => QUANTITY
@@ -118,6 +118,21 @@ function App() {
           labels.push(new Label(1, row[1], row[2], row[3], row[4], row[5], row[6]));
         }
       }
+    } else if (csvType === 'REPO-SIN-ATTR') {
+      // i starts at 1 to skip the headers
+      // TEMP data.length - 1 because last row length is 1
+      for(let i=1; i<data.length-1; i++) {
+        const row = data[i];
+        /*
+        1 => QUANTITY
+        row[1] => CODE
+        row[2] => DESCRIPCION
+        row[3] => MANUFACTURE CODE
+        row[4] => CATEGORIES
+        row[5] => PRICE
+        */
+      labels.push(new Label(1, row[1], row[2], row[3], row[4], row[5], ''));
+      }
     }
 
     return labels;
@@ -129,7 +144,9 @@ function App() {
     if (data[0].length === 9)
       lblType = 'INGRESAR'
     else if (data[0].length === 7)
-      lblType = 'REPO'
+      lblType = 'REPO-CON-ATTR'
+    else if (data[0].length === 6)
+      lblType = 'REPO-SIN-ATTR'
 
     let labels = getLabel(data, lblType)
 
