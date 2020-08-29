@@ -230,6 +230,7 @@
   background-color: white;
   width: 5cm;
   height: 2.5cm;
+  margin-bottom: 5px;
 }
 
 .type-2 h2,
@@ -239,23 +240,18 @@
 
 
 .type-2 p {
-  font-size: .4rem;
+  font-size: 8px;
   font-weight: 400;
 }
 
+.type-2 .cat,
+.type-2 .desc {
+  overflow: hidden;
+}
+
 .type-2 .price {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 500;
-  letter-spacing: .5px;
-}
-
-.type-2 .cat {
-  font-style: italic;
-  font-weight: 700;
-}
-
-.type-2 .code {
-  font-weight: 700;
 }
 
 .type-2 .container {
@@ -263,16 +259,25 @@
   grid-template: auto / 2fr 1fr;
   height: 100%;
   width: 100%;
+  padding: 0 5px;
 }
 
-.type-2 .desc {
-  margin-top: 3px;
-  height: 25px;
+.type-2 .desc,
+.type-2 .cat {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 20px;
+  word-break: break-all;
+}
+
+.type-2 .fa-code {
+  margin: 1.5px 0;
 }
 
 
 .type-2 .code {
-  margin-top: .5em;
+  margin-top: 4px;
 }
 
 .type-2 .left-side {
@@ -405,14 +410,12 @@
     display: none;
   }
 
-  #section-to-print, #section-to-print * {
+  #section-to-print-type1, #section-to-print-type1 * {
     visibility: visible;
   }
 
-  #section-to-print {
+  #section-to-print-type1 {
     display: inline-block;
-    /* grid-template: auto / 1fr 1fr; */
-    /* width: calc(10cm + 3.5mm); */
     position: absolute;
     left: 0;
     top: 0;
@@ -424,24 +427,40 @@
   .type-2,
   .type-3,
   .type-4 {
-    /* display: inline-block; */
     margin: 0;
     -webkit-print-color-adjust: exact;
-    /* margin-bottom: 3mm; */
   }
 
-/*
-  #section-to-print > div:nth-child(odd){
-    margin-right: 3mm;
+  h1 {
+    margin: 0;
   }
 
-  #section-to-print > div:nth-last-child(1),
-  #section-to-print > div:nth-last-child(2) {
+  #section-to-print-type2, #section-to-print-type2 * {
+    visibility: visible;
+  }
+
+  #section-to-print-type2 {
+    display: grid;
+    grid-template: auto / 1fr 1fr;
+    width: calc(10cm + 3.5mm);
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+  }
+
+
+  .type-2:nth-child(odd){
+    margin-right: 3.5mm;
+  }
+
+  .type-2 {
+    margin-bottom: 2mm;
+  }
+
+  .type-2:nth-last-child(1),
+  .type-2:nth-last-child(2) {
     margin-bottom: 0;
-  } */
-
-  /* .type-2 {
-    margin-top: -4mm;
-  } */
+  }
 
 }

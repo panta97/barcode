@@ -1,4 +1,5 @@
-#section-to-print {
+#section-to-print-type1,
+#section-to-print-type2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

@@ -3,9 +3,9 @@ import QRCode from "qrcode.react";
 import MicroQR from "./microQR";
 import "./barcode.css";
 
-function Barcode({label: {code, desc, mCode, cats, price, attr, type}, id}) {
+function Barcode({label: {code, desc, mCode, cats, price, attr}, type, id}) {
 
-  if (type === '1') {
+  if (type === 1) {
     return (
       <div className="type-1">
   <div className="container">
@@ -39,6 +39,31 @@ function Barcode({label: {code, desc, mCode, cats, price, attr, type}, id}) {
 
   </div>
 </div>
+    );
+  } else if (type === 2) {
+    return (
+      <div className="type-2">
+        <div className="container">
+          <div className="left-side">
+            <h2 className="price">{price}</h2>
+            <p className="cat">{cats}</p>
+            <p className="fa-code">{mCode === '' ? '-' : mCode}</p>
+            <p className="desc">{desc}</p>
+            <p className="attr">{attr}</p>
+          </div>
+          <div className="right-side">
+            <div className="barcode">
+              <QRCode
+                value={code}
+                size={50}
+                level={"H"}
+                renderAs={"svg"}
+              ></QRCode>
+            </div>
+            <p className="code">{code}</p>
+          </div>
+        </div>
+      </div>
     );
   }
 }

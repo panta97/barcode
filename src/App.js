@@ -39,6 +39,7 @@ function App() {
 
   const [filename, setFilename] = useState('');
 
+  const [bcType, setBcType] = useState(2);
 
   const getLabel = (data, csvType) => {
     let labels = [];
@@ -63,7 +64,6 @@ function App() {
         this.cats = cats;
         this.price = this.currencyFormat(price);
         this.attr = this.attrPristine(attr);
-        this.type = '1';
 
         // Helper property after setting quantities
         // this property will be 0
@@ -170,6 +170,26 @@ function App() {
 
   };
 
+  let htmlType;
+
+  if (bcType === 1) {
+    htmlType = (
+      <div id="section-to-print-type1">
+        {labels.map((label, index) => (
+          <Barcode key={index} label={label} type={bcType} id={index}></Barcode>
+        ))}
+      </div>
+    );
+  } else if (bcType === 2) {
+      htmlType = (
+        <div id="section-to-print-type2">
+          {labels.map((label, index) => (
+            <Barcode key={index} label={label} type={bcType} id={index}></Barcode>
+          ))}
+        </div>
+      );
+  }
+
   return (
     <div>
       <div key={inputKey} className="file-container">
@@ -184,13 +204,7 @@ function App() {
       </div>
 
       <h1>Etiquetas: {quantity}</h1>
-
-      <div id="section-to-print">
-        {
-        labels.map((label, index) => (
-          <Barcode key={index} label={label} id={index}></Barcode>
-        ))}
-      </div>
+      {htmlType}
     </div>
 
   );
