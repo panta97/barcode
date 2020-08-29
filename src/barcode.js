@@ -1,6 +1,5 @@
 import React from "react";
 import QRCode from "qrcode.react";
-import MicroQR from "./microQR";
 import "./barcode.css";
 
 function Barcode({label: {code, desc, mCode, cats, price, attr}, type, id}) {

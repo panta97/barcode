@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import CSVReader from 'react-csv-reader';
 import Barcode from './barcode';
+import Barcode2 from './barcode2';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
 
   const [filename, setFilename] = useState('');
 
-  const [bcType, setBcType] = useState(2);
+  const [bcType, setBcType] = useState(3);
 
   const getLabel = (data, csvType) => {
     let labels = [];
@@ -181,13 +182,37 @@ function App() {
       </div>
     );
   } else if (bcType === 2) {
-      htmlType = (
-        <div id="section-to-print-type2">
-          {labels.map((label, index) => (
-            <Barcode key={index} label={label} type={bcType} id={index}></Barcode>
-          ))}
-        </div>
-      );
+    htmlType = (
+      <div id="section-to-print-type2">
+        {labels.map((label, index) => (
+          <Barcode key={index} label={label} type={bcType} id={index}></Barcode>
+        ))}
+      </div>
+    );
+  } else if (bcType === 3) {
+    // TO COMPLETE A LABEL
+    // [qr] | null | null -> [qr] | [] | []
+    let [lblsLeft, lblsMid, lblsRight] = [[], [], []];
+    for (let i = 0; i < labels.length; i += 3) {
+      lblsLeft.push(labels[i]);
+      lblsMid.push(i+1 < labels.length ? labels[i+1] : null);
+      lblsRight.push(i+2 < labels.length ? labels[i+2] : null);
+    }
+
+    htmlType = (
+      <div id="section-to-print-type2">
+        {lblsLeft.map((_, i) => (
+          <Barcode2
+            key={i}
+            lblLeft={lblsLeft[i]}
+            lblMid={lblsMid[i]}
+            lblRight={lblsRight[i]}
+            type={bcType}
+            id={i}
+          ></Barcode2>
+        ))}
+      </div>
+    );
   }
 
   return (
