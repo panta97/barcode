@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
+import './btngroup.css';
+import imgType1 from './img/type1.jpg';
+import imgType2 from './img/type2.jpg';
+import imgType3 from './img/type3.jpg';
 import CSVReader from 'react-csv-reader';
 import Barcode from './barcode';
 import Barcode2 from './barcode2';
@@ -40,7 +44,11 @@ function App() {
 
   const [filename, setFilename] = useState('');
 
-  const [bcType, setBcType] = useState(3);
+
+  const [bcType, setBcType] = useState(1);
+  const [bt1Active, setBt1Active] = useState(true);
+  const [bt2Active, setBt2Active] = useState(false);
+  const [bt3Active, setBt3Active] = useState(false);
 
   const getLabel = (data, csvType) => {
     let labels = [];
@@ -171,8 +179,29 @@ function App() {
 
   };
 
-  let htmlType;
+  const setActiveB1 = () => {
+    setBt2Active(prev => false);
+    setBt3Active(prev => false);
+    setBt1Active(prev => true);
+    setBcType(prev => 1);
+  }
 
+  const setActiveB2 = () => {
+    setBt1Active(prev => false);
+    setBt3Active(prev => false);
+    setBt2Active(prev => true);
+    setBcType(prev => 2);
+  }
+
+  const setActiveB3 = () => {
+    setBt1Active(prev => false);
+    setBt2Active(prev => false);
+    setBt3Active(prev => true);
+    setBcType(prev => 3);
+  }
+
+
+  let htmlType;
   if (bcType === 1) {
     htmlType = (
       <div id="section-to-print-type1">
@@ -193,10 +222,11 @@ function App() {
     // TO COMPLETE A LABEL
     // [qr] | null | null -> [qr] | [] | []
     let [lblsLeft, lblsMid, lblsRight] = [[], [], []];
-    for (let i = 0; i < labels.length; i += 3) {
+    const lblsLen = labels.length; // OPTIMIZING ?
+    for (let i = 0; i < lblsLen; i += 3) {
       lblsLeft.push(labels[i]);
-      lblsMid.push(i+1 < labels.length ? labels[i+1] : null);
-      lblsRight.push(i+2 < labels.length ? labels[i+2] : null);
+      lblsMid.push(i+1 < lblsLen ? labels[i+1] : null);
+      lblsRight.push(i+2 < lblsLen ? labels[i+2] : null);
     }
 
     htmlType = (
@@ -217,21 +247,58 @@ function App() {
 
   return (
     <div>
-      <div key={inputKey} className="file-container">
-        <CSVReader inputId="file-upload" onFileLoaded={(data, fileInfo) => getData(data, fileInfo)} />
-        <div className="mask">
-        {filename}
-        </div>
-      </div>
+      <div className="header">
+        <div className="col-1">
+          {/* btn Chose File */}
+          <div key={inputKey} className="file-container">
+            <CSVReader
+              inputId="file-upload"
+              onFileLoaded={(data, fileInfo) => getData(data, fileInfo)}
+            />
+            <div className="mask">{filename}</div>
+          </div>
 
-      <div id="no-print">
-      <button onClick={() => window.print()}>PRINT</button>
+          {/* btn PRINT */}
+          <div id="no-print">
+            <button onClick={() => window.print()}>PRINT</button>
+          </div>
+        </div>
+        <div className="col-2">
+          <div className="btn-group">
+            <button
+              className={bt1Active ? "btn-bctype active" : "btn-bctype"}
+              onClick={setActiveB1}
+            >
+              <img
+                src={imgType1}
+                alt=""
+              />
+            </button>
+            <button
+              className={bt2Active ? "btn-bctype active" : "btn-bctype"}
+              onClick={setActiveB2}
+            >
+              <img
+                src={imgType2}
+                alt=""
+              />
+            </button>
+            <button
+              className={bt3Active ? "btn-bctype active" : "btn-bctype"}
+              onClick={setActiveB3}
+            >
+              <img
+                src={imgType3}
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
       </div>
 
       <h1>Etiquetas: {quantity}</h1>
       {htmlType}
     </div>
-
   );
 }
 

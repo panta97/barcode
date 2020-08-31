@@ -250,7 +250,7 @@
 }
 
 .type-2 .price {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
@@ -313,6 +313,7 @@
 .type-3 {
   width: 5cm;
   height: 2.5cm;
+  margin-bottom: 5px;
 }
 
 .type-3 .container {

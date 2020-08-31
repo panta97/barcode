@@ -25,3 +25,14 @@
   background-color: white;
   padding-left: 3px;
 }
+
+
+.header {
+  display: grid;
+  grid-template: auto / 280px 500px auto;
+}
+
+.col-2 {
+  /* border: 1px solid magenta; */
+  position: relative;
+}

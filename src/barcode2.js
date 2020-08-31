@@ -12,7 +12,7 @@ function Barcode2({ lblLeft, lblMid, lblRight, type, id }) {
         <MicroQR
           codeType={"microqrcode"}
           value={lblLeft.code}
-          scale={24}
+          scale={12}
           size={100}
           id={`${id}-l`}
         ></MicroQR>
@@ -29,7 +29,7 @@ function Barcode2({ lblLeft, lblMid, lblRight, type, id }) {
           <MicroQR
             codeType={"microqrcode"}
             value={lblMid.code}
-            scale={24}
+            scale={12}
             size={100}
             id={`${id}-m`}
           ></MicroQR>
@@ -47,7 +47,7 @@ function Barcode2({ lblLeft, lblMid, lblRight, type, id }) {
           <MicroQR
             codeType={"microqrcode"}
             value={lblRight.code}
-            scale={24}
+            scale={12}
             size={100}
             id={`${id}-r`}
           ></MicroQR>
