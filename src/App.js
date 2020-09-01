@@ -247,6 +247,7 @@ function App() {
 
   return (
     <div>
+      <div className="top-header">
       <div className="header">
         <div className="col-1">
           {/* btn Chose File */}
@@ -295,8 +296,9 @@ function App() {
           </div>
         </div>
       </div>
+      <h1 className="lbl-total">Etiquetas: {quantity}</h1>
+      </div>
 
-      <h1>Etiquetas: {quantity}</h1>
       {htmlType}
     </div>
   );
