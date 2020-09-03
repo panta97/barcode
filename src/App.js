@@ -1,54 +1,32 @@
 import React, { useState } from 'react';
 import './App.css';
 import './btngroup.css';
+import './modal.css';
 import imgType1 from './img/type1.jpg';
 import imgType2 from './img/type2.jpg';
 import imgType3 from './img/type3.jpg';
 import CSVReader from 'react-csv-reader';
 import Barcode from './barcode';
 import Barcode2 from './barcode2';
+import Productqq from "./productqq";
 
 
 function App() {
-  let barcodes = [];
-
-  // Debugging code
-  const debug = false;
-
-  const getDataDebug = (data) => {
-    for (let i = 0; i < data.length; i++) {
-      for (let j = 0; j < data[i]['total']; j++) {
-        var elementDetails = {
-          price : data[i]['price'],
-          desc : data[i]['desc'],
-          size : data[i]['size'],
-          mCode : data[i]['mCode'],
-          code : data[i]['code'],
-          type : data[i]['type']
-        }
-        barcodes.push(elementDetails);
-      }
-    }
-  };
-
-  if (debug) {
-    let data = require('./tickets.json');
-    getDataDebug(data);
-  }
-  // end
 
   const [inputKey, setInputKey] = useState('22');
 
-  const [labels, setLabels] = useState(barcodes);
-  const [quantity, setQuantity] = useState(barcodes.length);
+  const [labelsUniq, setLabelsUniq] = useState([]);
+  const [labels, setLabels] = useState([]);
+  const [quantity, setQuantity] = useState(0);
 
   const [filename, setFilename] = useState('');
-
 
   const [bcType, setBcType] = useState(1);
   const [bt1Active, setBt1Active] = useState(true);
   const [bt2Active, setBt2Active] = useState(false);
   const [bt3Active, setBt3Active] = useState(false);
+
+  const [modalActive, setModalActive] = useState(false);
 
   const getLabel = (data, csvType) => {
     let labels = [];
@@ -73,6 +51,9 @@ function App() {
         this.cats = cats;
         this.price = this.currencyFormat(price);
         this.attr = this.attrPristine(attr);
+
+        // Helper property quantity in memory for modal
+        this.qttInMem = Number(quantity);
 
         // Helper property after setting quantities
         // this property will be 0
@@ -147,6 +128,18 @@ function App() {
     return labels;
   }
 
+  const updateQuantities = (labelsUniq) => {
+    let labelsQ = [];
+    for(let i = 0; i< labelsUniq.length; i++) {
+      let label = Object.assign({}, labelsUniq[i]);
+      while(label.quantity > 0) {
+        labelsQ.push(label);
+        label.quantity -= 1;
+      }
+    }
+    return labelsQ;
+  }
+
   const getData = (data, fileInfo) => {
 
     let lblType = ''
@@ -157,19 +150,15 @@ function App() {
     else if (data[0].length === 6)
       lblType = 'REPO-SIN-ATTR'
 
-    let labels = getLabel(data, lblType)
+    // update labels unique
+    let labels = getLabel(data, lblType);
+    // must be immutable
+    setLabelsUniq(labels);
 
     // set quantities
-    let labelsQ = [];
-    for(let i = 0; i< labels.length; i++) {
-      let label = labels[i];
-      while(label.quantity > 0) {
-        labelsQ.push(label);
-        label.quantity -= 1;
-      }
-    }
-
+    let labelsQ = updateQuantities(labels);
     setQuantity(prevQuantity => labelsQ.length);
+    // must be immutable
     setLabels(prevLabels => labelsQ);
 
     const randomString = Math.random().toString(36);
@@ -245,12 +234,55 @@ function App() {
     );
   }
 
+  const showModal = () => {
+    setModalActive(prev => true);
+  };
+  const hideModal = () => {
+    setModalActive(prev => false);
+  };
+
+  const updateQqsInMem = (code, qqs) => {
+    let newLabelsqq = labelsUniq.map(label => {
+      // min value 0
+      // max value 999
+      if(!qqs) qqs = 0;
+      if(qqs >= 999) qqs = 999;
+      if(label.code === code) label.qttInMem = qqs;
+      return label;
+    });
+    setLabelsUniq(prev => newLabelsqq);
+  };
+
+  const cancelQqs = () => {
+    hideModal();
+    let newLabelsqq = labelsUniq.map(label => {
+      label.qttInMem = label.quantity;
+      return label;
+    });
+    setLabelsUniq(prev => newLabelsqq);
+  };
+
+  const confirmQqs = () => {
+    hideModal();
+    let newLabelsqq = labelsUniq.map(label => {
+      label.quantity = label.qttInMem;
+      return label;
+    });
+    setLabelsUniq(prev => newLabelsqq);
+
+    // set quantities
+    let labelsQ = updateQuantities(newLabelsqq);
+    setQuantity(prevQuantity => labelsQ.length);
+    // must be immutable
+    setLabels(prevLabels => labelsQ);
+  };
+
   return (
     <div>
       <div className="top-header">
       <div className="header">
         <div className="col-1">
-          {/* btn Chose File */}
+          {/* btn CHOOSE FILE */}
           <div key={inputKey} className="file-container">
             <CSVReader
               inputId="file-upload"
@@ -263,6 +295,11 @@ function App() {
           <div id="no-print">
             <button onClick={() => window.print()}>PRINT</button>
           </div>
+
+          {/* btn QUANTITIES */}
+          <button className="btn-modal" onClick={showModal} disabled={filename === '' ? true : false}>
+            Cantidades
+          </button>
         </div>
         <div className="col-2">
           <div className="btn-group">
@@ -298,8 +335,49 @@ function App() {
       </div>
       <h1 className="lbl-total">Etiquetas: {quantity}</h1>
       </div>
-
       {htmlType}
+
+      {/* modal html */}
+      <div
+        className={modalActive ? "modal display-block" : "modal display-none"}
+      >
+        <section className="modal-qq">
+          <div className="t-top">
+            <button className="close-modal" tabIndex="-1" onClick={cancelQqs}>
+              &times;
+            </button>
+          </div>
+          <table className="t-lbls">
+            <thead>
+              <tr>
+                <th className="t-code">Código</th>
+                <th className="t-desc">Descripción</th>
+                <th className="t-attr">Attr</th>
+                <th className="t-fa-code">C. Fab</th>
+                <th className="t-quantity">Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              {labelsUniq.map((label, i) => (
+                <Productqq
+                  code={label.code}
+                  desc={label.desc}
+                  attr={label.attr}
+                  mCode={label.mCode}
+                  qttInMem={label.qttInMem}
+                  onChange={updateQqsInMem}
+                  key={i}
+                />
+              ))}
+            </tbody>
+          </table>
+          <div className="bottom-btns">
+            <button className="btn btn-success" onClick={confirmQqs}>
+              Aceptar
+            </button>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
