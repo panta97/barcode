@@ -33,7 +33,21 @@
   top: 20%;
   left: 50%;
   transform: translate(-50%, -20%);
+}
 
+.modal-error {
+  color: #2B2D42;
+  box-sizing: content-box;
+  border: 1px solid #2B2D42;
+/*   display: inline-block; */
+  background-color: #FAFCFC;
+  width: 400px;
+  padding: 20px;
+/*   margin: 0 auto; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* TOP */
@@ -175,4 +189,9 @@ tbody {
   border: 1px solid #2B2D42;
   background-color: #ffffff;
   color: #2B2D42;
+}
+
+
+.text-error {
+  color:  #EF233C;
 }

@@ -28,6 +28,8 @@ function App() {
 
   const [modalActive, setModalActive] = useState(false);
 
+  const [validCode, setValidCode] = useState(true);
+
   const getLabel = (data, csvType) => {
     let labels = [];
 
@@ -152,11 +154,19 @@ function App() {
 
     // update labels unique
     let labels = getLabel(data, lblType);
+
+    // check excel code format
+    let validCode = correctCodeFormat(labels, fileInfo.name);
+    if (!validCode) labels = [];
+
+    setValidCode(prev => validCode);
+
     // must be immutable
     setLabelsUniq(labels);
 
     // set quantities
     let labelsQ = updateQuantities(labels);
+
     setQuantity(prevQuantity => labelsQ.length);
     // must be immutable
     setLabels(prevLabels => labelsQ);
@@ -277,63 +287,72 @@ function App() {
     setLabels(prevLabels => labelsQ);
   };
 
+  const correctCodeFormat = (lblsUniq, filename) => {
+    if (filename === '') return true;
+    for(let i=0; i < lblsUniq.length; i++) {
+      if(/\d\.\d{5}E\+12/.test(lblsUniq[i].code)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  const closeErrorModal = () => {
+    setValidCode(prev => true);
+  }
+
   return (
     <div>
       <div className="top-header">
-      <div className="header">
-        <div className="col-1">
-          {/* btn CHOOSE FILE */}
-          <div key={inputKey} className="file-container">
-            <CSVReader
-              inputId="file-upload"
-              onFileLoaded={(data, fileInfo) => getData(data, fileInfo)}
-            />
-            <div className="mask">{filename}</div>
-          </div>
+        <div className="header">
+          <div className="col-1">
+            {/* btn CHOOSE FILE */}
+            <div key={inputKey} className="file-container">
+              <CSVReader
+                inputId="file-upload"
+                onFileLoaded={(data, fileInfo) => getData(data, fileInfo)}
+              />
+              <div className="mask">{filename}</div>
+            </div>
 
-          {/* btn PRINT */}
-          <div id="no-print">
-            <button onClick={() => window.print()}>PRINT</button>
-          </div>
+            {/* btn PRINT */}
+            <div id="no-print">
+              <button onClick={() => window.print()}>PRINT</button>
+            </div>
 
-          {/* btn QUANTITIES */}
-          <button className="btn-modal" onClick={showModal} disabled={filename === '' ? true : false}>
-            Cantidades
-          </button>
-        </div>
-        <div className="col-2">
-          <div className="btn-group">
+            {/* btn QUANTITIES */}
             <button
-              className={bt1Active ? "btn-bctype active" : "btn-bctype"}
-              onClick={setActiveB1}
+              className="btn-modal"
+              onClick={showModal}
+              disabled={filename === "" ? true : false}
             >
-              <img
-                src={imgType1}
-                alt=""
-              />
+              Cantidades
             </button>
-            <button
-              className={bt2Active ? "btn-bctype active" : "btn-bctype"}
-              onClick={setActiveB2}
-            >
-              <img
-                src={imgType2}
-                alt=""
-              />
-            </button>
-            <button
-              className={bt3Active ? "btn-bctype active" : "btn-bctype"}
-              onClick={setActiveB3}
-            >
-              <img
-                src={imgType3}
-                alt=""
-              />
-            </button>
+          </div>
+          <div className="col-2">
+            <div className="btn-group">
+              <button
+                className={bt1Active ? "btn-bctype active" : "btn-bctype"}
+                onClick={setActiveB1}
+              >
+                <img src={imgType1} alt="" />
+              </button>
+              <button
+                className={bt2Active ? "btn-bctype active" : "btn-bctype"}
+                onClick={setActiveB2}
+              >
+                <img src={imgType2} alt="" />
+              </button>
+              <button
+                className={bt3Active ? "btn-bctype active" : "btn-bctype"}
+                onClick={setActiveB3}
+              >
+                <img src={imgType3} alt="" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <h1 className="lbl-total">Etiquetas: {quantity}</h1>
+        <h1 className="lbl-total">Etiquetas: {quantity}</h1>
       </div>
       {htmlType}
 
@@ -377,6 +396,19 @@ function App() {
             </button>
           </div>
         </section>
+      </div>
+
+      {/* modal error */}
+      <div className={validCode ? "modal display-none" : "modal display-block"}>
+        <div className="modal-error">
+          <p className="text-error">ERROR de formato: 4.55395E+12</p>
+          <p className="text-error">Volver a cargar</p>
+          <div className="bottom-btns">
+            <button className="btn btn-danger" onClick={closeErrorModal}>
+              Aceptar
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
