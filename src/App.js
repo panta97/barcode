@@ -29,6 +29,7 @@ function App() {
   const [modalActive, setModalActive] = useState(false);
 
   const [validCode, setValidCode] = useState(true);
+  const [errorMsgs, setErrorMsgs] = useState([]);
 
   const getLabel = (data, csvType) => {
     let labels = [];
@@ -156,10 +157,11 @@ function App() {
     let labels = getLabel(data, lblType);
 
     // check excel code format
-    let validCode = correctCodeFormat(labels, fileInfo.name);
-    if (!validCode) labels = [];
+    const error = correctCodeFormat(labels, fileInfo.name);
+    if (!error.validCode) labels = [];
 
-    setValidCode(prev => validCode);
+    setValidCode(prev => error.validCode);
+    setErrorMsgs(prev => error.msgs);
 
     // must be immutable
     setLabelsUniq(labels);
@@ -288,17 +290,62 @@ function App() {
   };
 
   const correctCodeFormat = (lblsUniq, filename) => {
-    if (filename === '') return true;
+    let errorHandler = {
+      validCode: true,
+      msgs: []
+    };
+
+    let msg = {
+      code: '',
+      desc: '',
+      error: ''
+    };
+
+    if (filename === '') return errorHandler;
+
     for(let i=0; i < lblsUniq.length; i++) {
+      msg = {
+        code: lblsUniq[i].code,
+        desc: lblsUniq[i].desc,
+        error: '-'
+      };
+      let errorMsg = [];
+      let validCode = true;
+
+      // excel error code is 4.55395E+12
       if(/\d\.\d{5}E\+12/.test(lblsUniq[i].code)) {
-        return false;
+        errorHandler.validCode = false;
+        validCode = false;
+        msg.code = lblsUniq[i].code;
+        errorMsg.push('código xlsx')
+      }
+      // odoo error code is empty ''
+      if(lblsUniq[i].code === '') {
+        errorHandler.validCode = false;
+        validCode = false;
+        msg.code = '';
+        errorMsg.push('código vacío')
+      }
+      // odoo error desc is empty ''
+      if(lblsUniq[i].desc === '') {
+        errorHandler.validCode = false;
+        validCode = false;
+        msg.desc = '';
+        errorMsg.push('desc vacío')
+      }
+
+      if(!validCode) {
+        msg.error = errorMsg.join(' - ');
+        errorHandler.msgs.push(msg);
       }
     }
-    return true;
+
+    return errorHandler;
   }
 
   const closeErrorModal = () => {
     setValidCode(prev => true);
+    setErrorMsgs(prev => []);
   }
 
   return (
@@ -401,8 +448,27 @@ function App() {
       {/* modal error */}
       <div className={validCode ? "modal display-none" : "modal display-block"}>
         <div className="modal-error">
-          <p className="text-error">ERROR de formato: 4.55395E+12</p>
-          <p className="text-error">Volver a cargar</p>
+          <p className="text-error">ERROR</p>
+          <table className="t-error">
+            <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Descripción</th>
+                  <th>Error</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                  errorMsgs.map((msg, i) => (
+                    <tr key={i}>
+                      <td>{msg.code}</td>
+                      <td>{msg.desc}</td>
+                      <td>{msg.error}</td>
+                    </tr>
+                  ))
+                }
+            </tbody>
+          </table>
           <div className="bottom-btns">
             <button className="btn btn-danger" onClick={closeErrorModal}>
               Aceptar

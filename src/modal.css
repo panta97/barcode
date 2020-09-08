@@ -41,7 +41,7 @@
   border: 1px solid #2B2D42;
 /*   display: inline-block; */
   background-color: #FAFCFC;
-  width: 400px;
+  width: 550px;
   padding: 20px;
 /*   margin: 0 auto; */
   position: fixed;
@@ -74,21 +74,23 @@
 
 /* TABLE */
 
-table {
+.t-lbls {
   border-collapse: collapse;
 }
 
-table, th, td {
+.t-lbls,
+.t-lbls th,
+.t-lbls td {
 /*   border: 1px solid black; */
     border-bottom: 1px solid #ddd;
 }
 
-thead,
-tbody {
+.t-lbls thead,
+.t-lbls tbody {
   display: block;
 }
 
-tbody {
+.t-lbls tbody {
   height: 400px;
   overflow-y: scroll;
 }
@@ -194,4 +196,28 @@ tbody {
 
 .text-error {
   color:  #EF233C;
+}
+
+
+/* TABLE ERROR */
+
+.t-error {
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.t-error th {
+  text-align: left;
+}
+
+.t-error,
+.t-error th,
+.t-error td {
+	border: 1px #D80032 solid;
+}
+
+
+.t-error th,
+.t-error td {
+  padding: 5px;
 }
