@@ -298,7 +298,8 @@ function App() {
     let msg = {
       code: '',
       desc: '',
-      error: ''
+      price: '',
+      error: '',
     };
 
     if (filename === '') return errorHandler;
@@ -307,7 +308,9 @@ function App() {
       msg = {
         code: lblsUniq[i].code,
         desc: lblsUniq[i].desc,
-        error: '-'
+        // substring to remove S/ 
+        price: lblsUniq[i].price.substring(3),
+        error: '-',
       };
       let errorMsg = [];
       let validCode = true;
@@ -317,21 +320,27 @@ function App() {
         errorHandler.validCode = false;
         validCode = false;
         msg.code = lblsUniq[i].code;
-        errorMsg.push('código xlsx')
+        errorMsg.push('código xlsx');
       }
       // odoo error code is empty ''
       if(lblsUniq[i].code === '') {
         errorHandler.validCode = false;
         validCode = false;
         msg.code = '';
-        errorMsg.push('código vacío')
+        errorMsg.push('código vacío');
       }
       // odoo error desc is empty ''
       if(lblsUniq[i].desc === '') {
         errorHandler.validCode = false;
         validCode = false;
         msg.desc = '';
-        errorMsg.push('desc vacío')
+        errorMsg.push('desc vacío');
+      }
+      // odoo error price is zero
+      if(lblsUniq[i].price === 'S/ 0.00') {
+        errorHandler.validCode = false;
+        validCode = false;
+        errorMsg.push('precio es cero');
       }
 
       if(!validCode) {
@@ -454,6 +463,7 @@ function App() {
                 <tr>
                   <th>Código</th>
                   <th>Descripción</th>
+                  <th>Precio</th>
                   <th>Error</th>
                 </tr>
             </thead>
@@ -463,6 +473,7 @@ function App() {
                     <tr key={i}>
                       <td>{msg.code}</td>
                       <td>{msg.desc}</td>
+                      <td>{msg.price}</td>
                       <td>{msg.error}</td>
                     </tr>
                   ))
