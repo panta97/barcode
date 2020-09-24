@@ -139,8 +139,6 @@
 
 .type-2 .desc,
 .type-2 .cat {
-  display: flex;
-  align-items: center;
   text-align: center;
   height: 20px;
   word-break: break-all;
