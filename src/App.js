@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import './App.css';
 import './btngroup.css';
 import './modal.css';
+import './animation.css';
 import imgType1 from './img/type1.jpg';
 import imgType2 from './img/type2.jpg';
 import imgType3 from './img/type3.jpg';
 import CSVReader from 'react-csv-reader';
-import Barcode from './barcode';
-import Barcode2 from './barcode2';
-import Productqq from "./productqq";
+import QttyModal from './Modals/QttyModal/QttyModal';
+import Labels from './Label/Labels';
+import Loader from './Loader/Loader';
+import correctCodeFormat from './Modals/ErrorModal/errorHandler';
+import getLabel from './utils/label';
+import ErrorModal from './Modals/ErrorModal/ErrorModal';
 
 
 function App() {
@@ -16,8 +20,6 @@ function App() {
   const [inputKey, setInputKey] = useState('22');
 
   const [labelsUniq, setLabelsUniq] = useState([]);
-  const [labels, setLabels] = useState([]);
-  const [quantity, setQuantity] = useState(0);
 
   const [filename, setFilename] = useState('');
 
@@ -31,117 +33,9 @@ function App() {
   const [validCode, setValidCode] = useState(true);
   const [errorMsgs, setErrorMsgs] = useState([]);
 
-  const getLabel = (data, csvType) => {
-    let labels = [];
+  const [isLoading, setIsLoading] = useState(false);
+  const [loaderType, setLoaderType] = useState(1);
 
-    class Label {
-
-      attrPristine(attr) {
-        // Some attr are undefined, specially the ones from the migration
-        if (!attr) return '';
-        // Color: Negro => Negro
-        return attr.split(':')[1].trim().toUpperCase();
-      }
-
-      currencyFormat(price) {
-        return `S/ ${Number(price).toFixed(2)}`;
-      }
-
-      constructor(quantity, code, desc, mCode, cats, price, attr){
-        this.code = code;
-        this.desc = desc;
-        this.mCode = mCode;
-        this.cats = cats;
-        this.price = this.currencyFormat(price);
-        this.attr = this.attrPristine(attr);
-
-        // Helper property quantity in memory for modal
-        this.qttInMem = Number(quantity);
-
-        // Helper property after setting quantities
-        // this property will be 0
-        this.quantity = Number(quantity);
-      }
-
-      addAttr(attr) {
-        this.attr += ` - ${this.attrPristine(attr)}`;
-      }
-    }
-
-
-    if (csvType === 'INGRESAR') {
-      // i starts at 1 to skip the headers
-      // TEMP data.length - 1 because last row length is 1
-      for(let i=1; i<data.length-1; i++) {
-        const row = data[i];
-        /*
-        row[2] => QUANTITY
-        row[3] => CODE
-        row[4] => DESCRIPCION
-        row[5] => MANUFACTURE CODE
-        row[6] => CATEGORIES
-        row[7] => PRICE
-        row[8] => ATTRIBUTE
-        */
-      if(row.slice(0,8).join('') === '') {
-        // Get last pushed item
-        labels[labels.length-1].addAttr(row[8]);
-        } else {
-          labels.push(new Label(row[2], row[3], row[4], row[5], row[6], row[7], row[8]));
-        }
-      }
-    } else if (csvType === 'REPO-CON-ATTR') {
-      // i starts at 1 to skip the headers
-      // TEMP data.length - 1 because last row length is 1
-      for(let i=1; i<data.length-1; i++) {
-        const row = data[i];
-        /*
-        1 => QUANTITY
-        row[1] => CODE
-        row[2] => DESCRIPCION
-        row[3] => MANUFACTURE CODE
-        row[4] => CATEGORIES
-        row[5] => PRICE
-        row[6] => ATTRIBUTE
-        */
-      if(row.slice(0,6).join('') === '') {
-        // Get last pushed item
-        labels[labels.length-1].addAttr(row[6]);
-        } else {
-          labels.push(new Label(1, row[1], row[2], row[3], row[4], row[5], row[6]));
-        }
-      }
-    } else if (csvType === 'REPO-SIN-ATTR') {
-      // i starts at 1 to skip the headers
-      // TEMP data.length - 1 because last row length is 1
-      for(let i=1; i<data.length-1; i++) {
-        const row = data[i];
-        /*
-        1 => QUANTITY
-        row[1] => CODE
-        row[2] => DESCRIPCION
-        row[3] => MANUFACTURE CODE
-        row[4] => CATEGORIES
-        row[5] => PRICE
-        */
-      labels.push(new Label(1, row[1], row[2], row[3], row[4], row[5], ''));
-      }
-    }
-
-    return labels;
-  }
-
-  const updateQuantities = (labelsUniq) => {
-    let labelsQ = [];
-    for(let i = 0; i< labelsUniq.length; i++) {
-      let label = Object.assign({}, labelsUniq[i]);
-      while(label.quantity > 0) {
-        labelsQ.push(label);
-        label.quantity -= 1;
-      }
-    }
-    return labelsQ;
-  }
 
   const getData = (data, fileInfo) => {
 
@@ -160,201 +54,64 @@ function App() {
     const error = correctCodeFormat(labels, fileInfo.name);
     if (!error.validCode) labels = [];
 
-    setValidCode(prev => error.validCode);
-    setErrorMsgs(prev => error.msgs);
-
-    // must be immutable
-    setLabelsUniq(labels);
-
-    // set quantities
-    let labelsQ = updateQuantities(labels);
-
-    setQuantity(prevQuantity => labelsQ.length);
-    // must be immutable
-    setLabels(prevLabels => labelsQ);
+    setValidCode(error.validCode);
+    setErrorMsgs(error.msgs);
 
     const randomString = Math.random().toString(36);
-    setInputKey(prevInputKey => randomString);
+    setInputKey(randomString);
 
-    setFilename(prevFilename => fileInfo.name);
+    setFilename(fileInfo.name);
 
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setLabelsUniq(labels);
+    }, 1);
   };
 
   const setActiveB1 = () => {
-    setBt2Active(prev => false);
-    setBt3Active(prev => false);
-    setBt1Active(prev => true);
-    setBcType(prev => 1);
+    setBt2Active(false);
+    setBt3Active(false);
+    setBt1Active(true);
+    setIsLoading(true);
+    setLoaderType(1);
+    setTimeout(() => {
+      setIsLoading(false);
+      setBcType(1);
+    }, 1);
   }
 
   const setActiveB2 = () => {
-    setBt1Active(prev => false);
-    setBt3Active(prev => false);
-    setBt2Active(prev => true);
-    setBcType(prev => 2);
+    setBt1Active(false);
+    setBt3Active(false);
+    setBt2Active(true);
+    setIsLoading(true);
+    setLoaderType(2);
+    setTimeout(() => {
+      setIsLoading(false);
+      setBcType(2);
+    }, 1);
   }
 
   const setActiveB3 = () => {
-    setBt1Active(prev => false);
-    setBt2Active(prev => false);
-    setBt3Active(prev => true);
-    setBcType(prev => 3);
-  }
-
-
-  let htmlType;
-  if (bcType === 1) {
-    htmlType = (
-      <div id="section-to-print-type1">
-        {labels.map((label, index) => (
-          <Barcode key={index} label={label} type={bcType} id={index}></Barcode>
-        ))}
-      </div>
-    );
-  } else if (bcType === 2) {
-    htmlType = (
-      <div id="section-to-print-type2">
-        {labels.map((label, index) => (
-          <Barcode key={index} label={label} type={bcType} id={index}></Barcode>
-        ))}
-      </div>
-    );
-  } else if (bcType === 3) {
-    // TO COMPLETE A LABEL
-    // [qr] | null | null -> [qr] | [] | []
-    let [lblsLeft, lblsMid, lblsRight] = [[], [], []];
-    const lblsLen = labels.length; // OPTIMIZING ?
-    for (let i = 0; i < lblsLen; i += 3) {
-      lblsLeft.push(labels[i]);
-      lblsMid.push(i+1 < lblsLen ? labels[i+1] : null);
-      lblsRight.push(i+2 < lblsLen ? labels[i+2] : null);
-    }
-
-    htmlType = (
-      <div id="section-to-print-type2">
-        {lblsLeft.map((_, i) => (
-          <Barcode2
-            key={i}
-            lblLeft={lblsLeft[i]}
-            lblMid={lblsMid[i]}
-            lblRight={lblsRight[i]}
-            type={bcType}
-            id={i}
-          ></Barcode2>
-        ))}
-      </div>
-    );
+    setBt1Active(false);
+    setBt2Active(false);
+    setBt3Active(true);
+    setIsLoading(true);
+    setLoaderType(3);
+    setTimeout(() => {
+      setIsLoading(false);
+      setBcType(3);
+    }, 1);
   }
 
   const showModal = () => {
-    setModalActive(prev => true);
+    setModalActive(true);
   };
-  const hideModal = () => {
-    setModalActive(prev => false);
-  };
-
-  const updateQqsInMem = (code, qqs) => {
-    let newLabelsqq = labelsUniq.map(label => {
-      // min value 0
-      // max value 999
-      if(!qqs) qqs = 0;
-      if(qqs >= 999) qqs = 999;
-      if(label.code === code) label.qttInMem = qqs;
-      return label;
-    });
-    setLabelsUniq(prev => newLabelsqq);
-  };
-
-  const cancelQqs = () => {
-    hideModal();
-    let newLabelsqq = labelsUniq.map(label => {
-      label.qttInMem = label.quantity;
-      return label;
-    });
-    setLabelsUniq(prev => newLabelsqq);
-  };
-
-  const confirmQqs = () => {
-    hideModal();
-    let newLabelsqq = labelsUniq.map(label => {
-      label.quantity = label.qttInMem;
-      return label;
-    });
-    setLabelsUniq(prev => newLabelsqq);
-
-    // set quantities
-    let labelsQ = updateQuantities(newLabelsqq);
-    setQuantity(prevQuantity => labelsQ.length);
-    // must be immutable
-    setLabels(prevLabels => labelsQ);
-  };
-
-  const correctCodeFormat = (lblsUniq, filename) => {
-    let errorHandler = {
-      validCode: true,
-      msgs: []
-    };
-
-    let msg = {
-      code: '',
-      desc: '',
-      price: '',
-      error: '',
-    };
-
-    if (filename === '') return errorHandler;
-
-    for(let i=0; i < lblsUniq.length; i++) {
-      msg = {
-        code: lblsUniq[i].code,
-        desc: lblsUniq[i].desc,
-        // substring to remove S/ 
-        price: lblsUniq[i].price.substring(3),
-        error: '-',
-      };
-      let errorMsg = [];
-      let validCode = true;
-
-      // excel error code is 4.55395E+12
-      if(/\d\.\d{5}E\+12/.test(lblsUniq[i].code)) {
-        errorHandler.validCode = false;
-        validCode = false;
-        msg.code = lblsUniq[i].code;
-        errorMsg.push('código xlsx');
-      }
-      // odoo error code is empty ''
-      if(lblsUniq[i].code === '') {
-        errorHandler.validCode = false;
-        validCode = false;
-        msg.code = '';
-        errorMsg.push('código vacío');
-      }
-      // odoo error desc is empty ''
-      if(lblsUniq[i].desc === '') {
-        errorHandler.validCode = false;
-        validCode = false;
-        msg.desc = '';
-        errorMsg.push('desc vacío');
-      }
-      // odoo error price is zero
-      if(lblsUniq[i].price === 'S/ 0.00') {
-        errorHandler.validCode = false;
-        validCode = false;
-        errorMsg.push('precio es cero');
-      }
-
-      if(!validCode) {
-        msg.error = errorMsg.join(' - ');
-        errorHandler.msgs.push(msg);
-      }
-    }
-
-    return errorHandler;
-  }
 
   const closeErrorModal = () => {
-    setValidCode(prev => true);
-    setErrorMsgs(prev => []);
+    setValidCode(true);
+    setErrorMsgs([]);
   }
 
   return (
@@ -408,85 +165,32 @@ function App() {
             </div>
           </div>
         </div>
-        <h1 className="lbl-total">Etiquetas: {quantity}</h1>
+        <h1 className="lbl-total">
+          Etiquetas: { isLoading ? 'cargando' : labelsUniq.reduce((acc, curr) => acc += curr.qtt, 0)}
+          {isLoading ? (<div className='lds-dual-ring'></div>) : null}
+        </h1>
       </div>
-      {htmlType}
+
+      {isLoading ?
+        <Loader loaderType={loaderType}/> :
+        <Labels bcType={bcType} labelsUniq={labelsUniq}/> }
 
       {/* modal html */}
-      <div
-        className={modalActive ? "modal display-block" : "modal display-none"}
-      >
-        <section className="modal-qq">
-          <div className="t-top">
-            <button className="close-modal" tabIndex="-1" onClick={cancelQqs}>
-              &times;
-            </button>
-          </div>
-          <table className="t-lbls">
-            <thead>
-              <tr>
-                <th className="t-code">Código</th>
-                <th className="t-desc">Descripción</th>
-                <th className="t-attr">Attr</th>
-                <th className="t-fa-code">C. Fab</th>
-                <th className="t-quantity">Cantidad</th>
-              </tr>
-            </thead>
-            <tbody>
-              {labelsUniq.map((label, i) => (
-                <Productqq
-                  code={label.code}
-                  desc={label.desc}
-                  attr={label.attr}
-                  mCode={label.mCode}
-                  qttInMem={label.qttInMem}
-                  onChange={updateQqsInMem}
-                  key={i}
-                />
-              ))}
-            </tbody>
-          </table>
-          <div className="bottom-btns">
-            <button className="btn btn-success" onClick={confirmQqs}>
-              Aceptar
-            </button>
-          </div>
-        </section>
-      </div>
+      {modalActive ?
+      <QttyModal
+        labels={labelsUniq}
+        setLabelsUniq={setLabelsUniq}
+        setModalActive={setModalActive}
+        modalActive={modalActive}
+        setIsLoading={setIsLoading}/>
+      : null}
 
       {/* modal error */}
-      <div className={validCode ? "modal display-none" : "modal display-block"}>
-        <div className="modal-error">
-          <p className="text-error">ERROR</p>
-          <table className="t-error">
-            <thead>
-                <tr>
-                  <th>Código</th>
-                  <th>Descripción</th>
-                  <th>Precio</th>
-                  <th>Error</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                  errorMsgs.map((msg, i) => (
-                    <tr key={i}>
-                      <td>{msg.code}</td>
-                      <td>{msg.desc}</td>
-                      <td>{msg.price}</td>
-                      <td>{msg.error}</td>
-                    </tr>
-                  ))
-                }
-            </tbody>
-          </table>
-          <div className="bottom-btns">
-            <button className="btn btn-danger" onClick={closeErrorModal}>
-              Aceptar
-            </button>
-          </div>
-        </div>
-      </div>
+      {validCode ?
+      null :
+      <ErrorModal
+        errorMsgs={errorMsgs}
+        closeErrorModal={closeErrorModal} /> }
     </div>
   );
 }

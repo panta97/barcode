@@ -1,6 +1,6 @@
 import React from "react";
-import MicroQR from "./microQR";
-import "./barcode.css";
+import MicroQR from "./MicroQR";
+import "./Barcode.css";
 
 function Barcode2({ lblLeft, lblMid, lblRight, type, id }) {
   let [htmlLeft, htmlMid, htmlRight] = [(<div></div>), (<div></div>), (<div></div>)];
