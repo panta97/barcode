@@ -32,7 +32,7 @@ const correctCodeFormat = (lblsUniq, filename) => {
       errorMsg.push('código xlsx');
     }
     // odoo error code is empty ''
-    if(lblsUniq[i].code === '') {
+    if(lblsUniq[i].code === '' || lblsUniq[i].code === false) {
       errorHandler.validCode = false;
       validCode = false;
       msg.code = '';

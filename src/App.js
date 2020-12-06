@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import './btngroup.css';
 import './modal.css';
@@ -13,7 +13,7 @@ import Loader from './Loader/Loader';
 import correctCodeFormat from './Modals/ErrorModal/errorHandler';
 import getLabel from './utils/label';
 import ErrorModal from './Modals/ErrorModal/ErrorModal';
-
+import getPurchaseOrder from "./api/purchaseOrder";
 
 function App() {
 
@@ -53,7 +53,6 @@ function App() {
     // check excel code format
     const error = correctCodeFormat(labels, fileInfo.name);
     if (!error.validCode) labels = [];
-
     setValidCode(error.validCode);
     setErrorMsgs(error.msgs);
 
@@ -68,6 +67,28 @@ function App() {
       setLabelsUniq(labels);
     }, 1);
   };
+
+  useEffect(() => {
+    async function populateFromAPI() {
+      // GET LABELS IF QUERY STRING IS SET IN URL
+      const params = new URLSearchParams(window.location.search)
+      let urlLabels = [];
+      if (params.has('api')) {
+        setIsLoading(true);
+        urlLabels = getLabel(await getPurchaseOrder(params), 'LAMBDA');
+        // check errors in case there are
+        const error = correctCodeFormat(urlLabels, 'api-file');
+        if (!error.validCode) urlLabels = [];
+        setValidCode(error.validCode);
+        setErrorMsgs(error.msgs);
+      }
+      setTimeout(() => {
+        setIsLoading(false);
+        setLabelsUniq(urlLabels);
+      }, 1);
+    }
+    populateFromAPI();
+  }, []);
 
   const setActiveB1 = () => {
     setBt2Active(false);
@@ -137,7 +158,7 @@ function App() {
             <button
               className="btn-modal"
               onClick={showModal}
-              disabled={filename === "" ? true : false}
+              // disabled={filename === "" ? true : false}
             >
               Cantidades
             </button>

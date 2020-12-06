@@ -91,6 +91,35 @@ const getLabel = (data, csvType) => {
       */
     labels.push(new Label(1, row[1], row[2], row[3], row[4], row[5], ''));
     }
+  } else if (csvType === 'LAMBDA') {
+    // calling from lambda functions
+    // json structure
+    //   {
+    //     "product_qty": 4.0,
+    //     "barcode": "2295912744045",
+    //     "name": "MUÑECA PLASTICA ARTICULABLE",
+    //     "default_code": "1802-2",
+    //     "categ_id": "NINA / JUGUETE / VARIOS",
+    //     "lst_price": 35.0,
+    //     "attribute_values": [
+    //       "COLORES MANUFACTURA SI: NEGRO",
+    //       "TALLA BOTTON: 32"
+    //   ]
+    // }
+    data.forEach(lbl => {
+      // if product has attributes
+      let auxLabel;
+      const mCode = lbl.mCode === false ? '' : lbl.mCode;
+      if(lbl.attr.length > 0) {
+        lbl.attr.forEach((att, i) => {
+          if (!i) // if i is equal to zero
+            auxLabel = new Label(lbl.quantity, lbl.code, lbl.desc, mCode, lbl.cats, lbl.price, att);
+          else auxLabel.addAttr(att);
+        });
+      // if it doesn't
+      } else auxLabel = new Label(lbl.quantity, lbl.code, lbl.desc, mCode, lbl.cats, lbl.price, '');
+      labels.push(auxLabel);
+    });
   }
 
   return labels;

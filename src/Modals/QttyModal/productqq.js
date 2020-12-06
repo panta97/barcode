@@ -12,8 +12,8 @@ function Productqq({ code, desc, attr, mCode, qttInMem, onChange }) {
         <input
           className="inp-quantity"
           type="number"
-          min="0"
-          max="999"
+          min={1}
+          max={999}
           value={qttInMem}
           onChange={(event) => onChange(code, event.target.valueAsNumber)}
         />
