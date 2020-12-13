@@ -3,9 +3,6 @@ import './App.css';
 import './btngroup.css';
 import './modal.css';
 import './animation.css';
-import imgType1 from './img/type1.jpg';
-import imgType2 from './img/type2.jpg';
-import imgType3 from './img/type3.jpg';
 import CSVReader from 'react-csv-reader';
 import QttyModal from './Modals/QttyModal/QttyModal';
 import Labels from './Label/Labels';
@@ -171,19 +168,19 @@ function App() {
                 className={bt1Active ? "btn-bctype active" : "btn-bctype"}
                 onClick={setActiveB1}
               >
-                <img src={imgType1} alt="" />
+                <div className='img-type-1'/>
               </button>
               <button
                 className={bt2Active ? "btn-bctype active" : "btn-bctype"}
                 onClick={setActiveB2}
               >
-                <img src={imgType2} alt="" />
+                <div className='img-type-2'/>
               </button>
               <button
                 className={bt3Active ? "btn-bctype active" : "btn-bctype"}
                 onClick={setActiveB3}
               >
-                <img src={imgType3} alt="" />
+                <div className='img-type-3'/>
               </button>
             </div>
           </div>

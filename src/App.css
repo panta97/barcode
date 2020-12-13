@@ -56,3 +56,24 @@ body {
   /* border: 1px solid magenta; */
   position: relative;
 }
+
+.img-type-1 {
+  width: 66px;
+  height: 66px;
+  background: #fff url('./img/type1.jpg');
+}
+.img-type-2 {
+  width: 66px;
+  height: 33px;
+  background: #fff url('./img/type2.jpg');
+}
+.img-type-3 {
+  width: 66px;
+  height: 33px;
+  background: #fff url('./img/type3.jpg');
+}
+.img-type-1,
+.img-type-2,
+.img-type-3 {
+  background-size: contain;
+}
