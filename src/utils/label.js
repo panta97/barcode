@@ -2,7 +2,6 @@ const getLabel = (data, csvType) => {
   let labels = [];
 
   class Label {
-
     attrPristine(attr) {
       // Some attr are undefined, specially the ones from the migration
       if (!attr) return '';
@@ -11,7 +10,11 @@ const getLabel = (data, csvType) => {
     }
 
     currencyFormat(price) {
-      return `S/ ${Number(price).toFixed(2)}`;
+      // price can be either string or number
+      return new Intl.NumberFormat("es-PE", {
+        style: "currency",
+        currency: "PEN",
+      }).format(price);
     }
 
     constructor(quantity, code, desc, mCode, cats, price, attr){
