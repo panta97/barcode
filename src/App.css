@@ -17,7 +17,6 @@ body {
   color: #2B2D42;
 }
 
-
 #section-to-print-type1,
 #section-to-print-type2 {
   display: flex;
@@ -28,24 +27,20 @@ body {
   padding: 20px;
 }
 
-
 .file-container {
-  display: inline-block;
+  display: flex;
   position: relative;
-  width: 250px;
+  width: 100%;
 }
 
-.mask {
-  position: absolute;
-  height: 1.5em;
-  width: 190px;
-  top: -1px;
-  left: 87px;
-  background-color: #FAFCFC;
-  color: #2B2D42;
-  padding-left: 3px;
+.btn-csv {
+  margin-right: 4px;
 }
 
+.btn-csv,
+.btn-print {
+  cursor: pointer;
+}
 
 .header {
   display: grid;

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { parse as PapaParse } from 'papaparse';
 import './App.css';
 import './btngroup.css';
 import './modal.css';
 import './animation.css';
-import CSVReader from 'react-csv-reader';
 import QttyModal from './Modals/QttyModal/QttyModal';
 import Labels from './Label/Labels';
 import Loader from './Loader/Loader';
@@ -13,8 +13,6 @@ import ErrorModal from './Modals/ErrorModal/ErrorModal';
 import getPurchaseOrder from "./api/purchaseOrder";
 
 function App() {
-
-  const [inputKey, setInputKey] = useState('22');
 
   const [labelsUniq, setLabelsUniq] = useState([]);
 
@@ -53,9 +51,6 @@ function App() {
     setValidCode(error.validCode);
     setErrorMsgs(error.msgs);
 
-    const randomString = Math.random().toString(36);
-    setInputKey(randomString);
-
     setFilename(fileInfo.name);
 
     setIsLoading(true);
@@ -64,6 +59,27 @@ function App() {
       setLabelsUniq(labels);
     }, 1);
   };
+
+  const hiddenCsvInput = useRef(null);
+  const handleCsvInput = _ => hiddenCsvInput.current.click();
+  // ADDED OWN IMPLEMENTATION BASED ON react-csv-reader
+  const csvReader = (e) => {
+    if (e.target.files.length > 0) {
+      const reader = new FileReader();
+      const data = e.target.files[0];
+      const fileInfo = {name: e.target.files[0].name};
+      reader.onload = (_event) => {
+        const csvData = PapaParse(
+          reader.result,
+          Object.assign({}, {
+            encoding: 'UTF-8',
+          }),
+        )
+        getData(csvData.data, fileInfo);
+      }
+      reader.readAsText(data, 'UTF-8');
+    }
+  }
 
   useEffect(() => {
     async function populateFromAPI() {
@@ -140,17 +156,28 @@ function App() {
         <div className="header">
           <div className="col-1">
             {/* btn CHOOSE FILE */}
-            <div key={inputKey} className="file-container">
-              <CSVReader
-                inputId="file-upload"
-                onFileLoaded={(data, fileInfo) => getData(data, fileInfo)}
-              />
-              <div className="mask">{filename}</div>
+            <div className="file-container">
+              <button className="btn-csv"
+                onClick={handleCsvInput}>
+                  SELECCIONE
+              </button>
+              <div>{filename}</div>
             </div>
+            {/* CSV HIDDEN INPUT */}
+            <input
+            type="file"
+            accept=".csv, text/csv"
+            ref={hiddenCsvInput}
+            style={{display: 'none'}}
+            onChange={csvReader}
+            onClick={(event) => { event.target.value = null }}
+            />
 
             {/* btn PRINT */}
             <div id="no-print">
-              <button onClick={() => window.print()}>PRINT</button>
+              <button className="btn-print" onClick={() => window.print()}>
+                PRINT
+              </button>
             </div>
 
             {/* btn QUANTITIES */}
