@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  background-color: #edf2f4;
+  background-color: #EDF2F4;
 }
 
 .top-header {
   background-color: #FAFCFC;
+  color: #2B2D42;
   padding: 20px;
 }
 
@@ -14,7 +15,6 @@ body {
 
 .lbl-total {
   margin: 0;
-  color: #2B2D42;
 }
 
 #section-to-print-type1,
@@ -27,28 +27,35 @@ body {
   padding: 20px;
 }
 
-.file-container {
-  display: flex;
-  position: relative;
-  width: 100%;
+.filename {
+  margin-top: 1px;
+  padding: 2px 5px;
+  word-break: break-all;
 }
 
 .btn-csv {
-  margin-right: 4px;
+  margin-bottom: 4px;
 }
 
 .btn-csv,
-.btn-print {
+.btn-print,
+.btn-modal {
+  font: inherit;
+  color: inherit;
   cursor: pointer;
+  width: 95px;
+  border: 1px solid #2B2D42;
+  border-radius: 3px;
+  background-color: #FAFCFC;
+  padding: 3px 6px;
 }
 
 .header {
   display: grid;
-  grid-template: auto / 280px 500px auto;
+  grid-template: auto / 95px 180px 500px auto;
 }
 
-.col-2 {
-  /* border: 1px solid magenta; */
+.col-3 {
   position: relative;
 }
 

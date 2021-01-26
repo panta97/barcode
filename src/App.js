@@ -156,13 +156,10 @@ function App() {
         <div className="header">
           <div className="col-1">
             {/* btn CHOOSE FILE */}
-            <div className="file-container">
-              <button className="btn-csv"
-                onClick={handleCsvInput}>
-                  SELECCIONE
-              </button>
-              <div>{filename}</div>
-            </div>
+            <button className="btn-csv"
+              onClick={handleCsvInput}>
+                Seleccione
+            </button>
             {/* CSV HIDDEN INPUT */}
             <input
             type="file"
@@ -176,7 +173,7 @@ function App() {
             {/* btn PRINT */}
             <div id="no-print">
               <button className="btn-print" onClick={() => window.print()}>
-                PRINT
+                Imprimir
               </button>
             </div>
 
@@ -190,6 +187,9 @@ function App() {
             </button>
           </div>
           <div className="col-2">
+            <div className="filename">{filename}</div>
+          </div>
+          <div className="col-3">
             <div className="btn-group">
               <button
                 className={bt1Active ? "btn-bctype active" : "btn-bctype"}
