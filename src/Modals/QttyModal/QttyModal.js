@@ -13,14 +13,13 @@ function QttyModal({labels, setLabelsUniq, setModalActive, modalActive, setIsLoa
   });
   const [labelsModal, setLabelsModal] = useState(llbs);
 
-
   const handleChangeInput = (code, qqs) => {
     const newLabelsqq = labelsModal.map(label => {
       // min value 0
       // max value 999
-      if(!qqs) qqs = 0;
-      if(qqs >= 999) qqs = 999;
-      if(label.code === code) label.qtt = qqs;
+      if(label.code === code) {
+        label.qtt = Math.min(qqs, 999);
+      }
       return label;
     });
     setLabelsModal(newLabelsqq);
@@ -43,7 +42,8 @@ function QttyModal({labels, setLabelsUniq, setModalActive, modalActive, setIsLoa
   const confirmQqs = () => {
     setModalActive(false);
     const newLabels = labelsModal.map((lbl, i) => {
-      labels[i].qtt = lbl.qtt;
+      const quantity = Number(lbl.qtt);
+      labels[i].qtt = isNaN(quantity) ? 0 : quantity;
       return labels[i];
     });
 
@@ -53,8 +53,6 @@ function QttyModal({labels, setLabelsUniq, setModalActive, modalActive, setIsLoa
       setLabelsUniq(newLabels);
     }, 1);
   };
-
-
 
   return (
     <div role="dialog"

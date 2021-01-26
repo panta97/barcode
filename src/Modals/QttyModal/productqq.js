@@ -2,6 +2,8 @@ import React from "react";
 
 function Productqq({ code, desc, attr, mCode, qttInMem, onChange }) {
 
+  const handleFocus = (e) => e.target.select();
+
   return (
     <tr>
       <td className="t-code">{code}</td>
@@ -12,10 +14,11 @@ function Productqq({ code, desc, attr, mCode, qttInMem, onChange }) {
         <input
           className="inp-quantity"
           type="number"
-          min={1}
+          min={0}
           max={999}
           value={qttInMem}
-          onChange={(event) => onChange(code, event.target.valueAsNumber)}
+          onChange={(event) => onChange(code, event.target.value)}
+          onFocus={handleFocus}
         />
       </td>
     </tr>
