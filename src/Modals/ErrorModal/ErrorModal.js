@@ -2,7 +2,7 @@ import React from 'react';
 
 function ErrorModal({errorMsgs, closeErrorModal}) {
   return (
-    <div className='modal display-block'>
+    <div role="dialog" className='modal display-block'>
         <div className="modal-error">
           <p className="text-error">ERROR</p>
           <table className="t-error">

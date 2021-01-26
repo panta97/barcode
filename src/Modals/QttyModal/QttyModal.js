@@ -57,7 +57,7 @@ function QttyModal({labels, setLabelsUniq, setModalActive, modalActive, setIsLoa
 
 
   return (
-    <div
+    <div role="dialog"
         className={modalActive ? "modal display-block" : "modal display-none"}
       >
         <section className="modal-qq">

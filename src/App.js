@@ -157,7 +157,8 @@ function App() {
           <div className="col-1">
             {/* btn CHOOSE FILE */}
             <button className="btn-csv"
-              onClick={handleCsvInput}>
+              onClick={handleCsvInput}
+              tabIndex={modalActive ? -1 : 0}>
                 Seleccione
             </button>
             {/* CSV HIDDEN INPUT */}
@@ -172,7 +173,8 @@ function App() {
 
             {/* btn PRINT */}
             <div id="no-print">
-              <button className="btn-print" onClick={() => window.print()}>
+              <button className="btn-print" onClick={() => window.print()}
+                tabIndex={modalActive ? -1 : 0}>
                 Imprimir
               </button>
             </div>
@@ -181,7 +183,7 @@ function App() {
             <button
               className="btn-modal"
               onClick={showModal}
-              // disabled={filename === "" ? true : false}
+              tabIndex={modalActive ? -1 : 0}
             >
               Cantidades
             </button>
@@ -194,18 +196,21 @@ function App() {
               <button
                 className={bt1Active ? "btn-bctype active" : "btn-bctype"}
                 onClick={setActiveB1}
+                tabIndex={modalActive ? -1 : 0}
               >
                 <div className='img-type-1'/>
               </button>
               <button
                 className={bt2Active ? "btn-bctype active" : "btn-bctype"}
                 onClick={setActiveB2}
+                tabIndex={modalActive ? -1 : 0}
               >
                 <div className='img-type-2'/>
               </button>
               <button
                 className={bt3Active ? "btn-bctype active" : "btn-bctype"}
                 onClick={setActiveB3}
+                tabIndex={modalActive ? -1 : 0}
               >
                 <div className='img-type-3'/>
               </button>

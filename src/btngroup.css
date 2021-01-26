@@ -26,7 +26,8 @@
   width: 100%;
 }
 
-.btn-bctype:hover {
+.btn-bctype:hover,
+.btn-bctype:focus {
   border-color: #2B2D42;
   background-color: #8D99AE;
   z-index: 2;
