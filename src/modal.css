@@ -18,6 +18,9 @@
   width:100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
+  /* SET Z INDEX TO PREVENT RADIO BUTTONS
+  FROM OVERLAPPING*/
+  z-index: 9;
 }
 
 .modal-qq {
