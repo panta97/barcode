@@ -1,54 +1,39 @@
 .btn-group {
-  display: inline-grid;
-  grid-template: auto / repeat(3, 1fr);
-}
-
-.btn-bctype {
-  outline: none;
+  display: flex;
+  position: relative;
 }
 
 .btn-bctype {
   width: 80px;
   height: 80px;
-  border: 0;
-  border-top: 1px dashed #8D99AE;
-  border-bottom: 1px dashed #8D99AE;
+  border: 1px dashed #8D99AE;
   background: #edf2f4;
   position: relative;
   transition: background-color .5s;
+  cursor: pointer;
+  outline: none;
 }
 
-.btn-bctype:first-child {
-  border-left: 1px dashed #8D99AE;
-/*   border-radius: 5px 0 0 5px; */
-}
-
-.btn-bctype:first-child,
 .btn-bctype:nth-child(2) {
-  border-right: 1px dashed #8D99AE;
+  right: 1px;
 }
 
-.btn-bctype:last-child {
-  border-right: 1px dashed #8D99AE;
-/*   border-radius: 0 5px 5px 0; */
+.btn-bctype:nth-child(3) {
+  right: calc(1px * 2);
 }
 
 .btn-bctype > img {
   width: 100%;
 }
 
-
 .btn-bctype:hover {
-  border: 1px dashed #2B2D42;
+  border-color: #2B2D42;
   background-color: #8D99AE;
-  cursor: pointer;
+  z-index: 2;
 }
 
-
-
 .active {
-  border: 0;
-  border: 1px dashed #2B2D42 !important;
+  border-color: #2B2D42;
   background-color: #8D99AE;
-  /* box-shadow: 0 0 0 3px rgba(0,0,0, .5); */
+  z-index: 1;
 }
