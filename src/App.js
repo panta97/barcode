@@ -159,7 +159,7 @@ function App() {
             <button className="btn-csv"
               onClick={handleCsvInput}
               tabIndex={modalActive ? -1 : 0}>
-                Seleccione
+                Seleccionar
             </button>
             {/* CSV HIDDEN INPUT */}
             <input

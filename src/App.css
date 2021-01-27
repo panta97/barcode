@@ -34,25 +34,33 @@ body {
 }
 
 .btn-csv {
-  margin-bottom: 4px;
+  margin-bottom: 1px;
 }
 
 .btn-csv,
 .btn-print,
 .btn-modal {
   font: inherit;
+  font-size: 13px;
+  font-weight: 700;
   color: inherit;
   cursor: pointer;
-  width: 95px;
+  width: 90px;
   border: 1px solid #2B2D42;
   border-radius: 3px;
   background-color: #FAFCFC;
-  padding: 3px 6px;
+  padding: 2px 4px;
+}
+
+.btn-csv:hover,
+.btn-print:hover,
+.btn-modal:hover {
+  filter: brightness(95%);
 }
 
 .header {
   display: grid;
-  grid-template: auto / 95px 180px 500px auto;
+  grid-template: auto / 90px 180px 500px auto;
 }
 
 .col-3 {
