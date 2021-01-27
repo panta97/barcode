@@ -5,11 +5,11 @@ object-assign
 */
 
 /* @license
-  Papa Parse
-  v5.1.1
-  https://github.com/mholt/PapaParse
-  License: MIT
-  */
+Papa Parse
+v5.3.0
+https://github.com/mholt/PapaParse
+License: MIT
+*/
 
 /*!
  * The buffer module from node.js, for the browser.
