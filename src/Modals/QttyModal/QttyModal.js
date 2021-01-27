@@ -18,7 +18,8 @@ function QttyModal({labels, setLabelsUniq, setModalActive, modalActive, setIsLoa
       // min value 0
       // max value 999
       if(label.code === code) {
-        label.qtt = Math.min(qqs, 999);
+        if(qqs >= 999) qqs = 999;
+        label.qtt = qqs;
       }
       return label;
     });
