@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/barcode/static/css/main.7a7817f7.chunk.css",
-    "main.js": "/barcode/static/js/main.c78e60be.chunk.js",
-    "main.js.map": "/barcode/static/js/main.c78e60be.chunk.js.map",
+    "main.js": "/barcode/static/js/main.53c87406.chunk.js",
+    "main.js.map": "/barcode/static/js/main.53c87406.chunk.js.map",
     "runtime-main.js": "/barcode/static/js/runtime-main.482fbc80.js",
     "runtime-main.js.map": "/barcode/static/js/runtime-main.482fbc80.js.map",
     "static/js/2.c51abe6b.chunk.js": "/barcode/static/js/2.c51abe6b.chunk.js",
     "static/js/2.c51abe6b.chunk.js.map": "/barcode/static/js/2.c51abe6b.chunk.js.map",
     "index.html": "/barcode/index.html",
-    "precache-manifest.74c05467897ac4719ce0ca5e5f1ff80b.js": "/barcode/precache-manifest.74c05467897ac4719ce0ca5e5f1ff80b.js",
+    "precache-manifest.3b7c699976918bf6fdd1e0b6adafae10.js": "/barcode/precache-manifest.3b7c699976918bf6fdd1e0b6adafae10.js",
     "service-worker.js": "/barcode/service-worker.js",
     "static/css/main.7a7817f7.chunk.css.map": "/barcode/static/css/main.7a7817f7.chunk.css.map",
     "static/js/2.c51abe6b.chunk.js.LICENSE.txt": "/barcode/static/js/2.c51abe6b.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.482fbc80.js",
     "static/js/2.c51abe6b.chunk.js",
     "static/css/main.7a7817f7.chunk.css",
-    "static/js/main.c78e60be.chunk.js"
+    "static/js/main.53c87406.chunk.js"
   ]
 }
