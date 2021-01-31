@@ -14,7 +14,7 @@ class MicroQR extends Component {
         textxalign: "center", // Always good to set this
       };
 
-      let canvas = bwipjs.toCanvas(`${this.props.id}-canvas`, barcodeProps);
+      bwipjs.toCanvas(this.props.id, barcodeProps);
       // console.log(canvas);
     } catch (e) {
       // `e` may be a string or Error object
@@ -22,12 +22,7 @@ class MicroQR extends Component {
   }
 
   render() {
-    let canvasStyle = {
-      width: '100%',
-      height: '100%'
-    };
-    let canvasId =`${this.props.id}-canvas`;
-    return <canvas id={canvasId} style={canvasStyle}></canvas>;
+    return <canvas id={this.props.id} style={{width: '45px'}}/>;
   }
 }
 

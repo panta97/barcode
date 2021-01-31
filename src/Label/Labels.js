@@ -15,15 +15,14 @@ function Labels({bcType, labelsUniq}) {
     return labelsQ;
   }
 
-  let labels = updateQuantities(labelsUniq);
-
+  const labels = updateQuantities(labelsUniq);
   let htmlType;
 
   if (bcType === 1) {
     htmlType = (
       <div id="section-to-print-type1">
         {labels.map((label, index) => (
-          <Barcode key={index} label={label} type={bcType} id={index}></Barcode>
+          <Barcode key={index} label={label} type={bcType} id={index}/>
         ))}
       </div>
     );
@@ -31,7 +30,7 @@ function Labels({bcType, labelsUniq}) {
     htmlType = (
       <div id="section-to-print-type2">
         {labels.map((label, index) => (
-          <Barcode key={index} label={label} type={bcType} id={index}></Barcode>
+          <Barcode key={index} label={label} type={bcType} id={index}/>
         ))}
       </div>
     );
@@ -42,8 +41,8 @@ function Labels({bcType, labelsUniq}) {
     const lblsLen = labels.length; // OPTIMIZING ?
     for (let i = 0; i < lblsLen; i += 3) {
       lblsLeft.push(labels[i]);
-      lblsMid.push(i+1 < lblsLen ? labels[i+1] : null);
-      lblsRight.push(i+2 < lblsLen ? labels[i+2] : null);
+      lblsMid.push(labels[i+1]);
+      lblsRight.push(labels[i+2]);
     }
 
     htmlType = (
@@ -54,7 +53,6 @@ function Labels({bcType, labelsUniq}) {
             lblLeft={lblsLeft[i]}
             lblMid={lblsMid[i]}
             lblRight={lblsRight[i]}
-            type={bcType}
             id={i}
           ></Barcode2>
         ))}
