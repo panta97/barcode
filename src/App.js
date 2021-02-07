@@ -105,39 +105,21 @@ function App() {
     populateFromAPI();
   }, []);
 
-  const setActiveB1 = () => {
-    setBt2Active(false);
-    setBt3Active(false);
-    setBt1Active(true);
+  const setActive = (type) => {
+    let btns = {
+      '1': false,
+      '2': false,
+      '3': false,
+    };
+    btns[String(type)] = true;
+    setBt1Active(btns['1']);
+    setBt2Active(btns['2']);
+    setBt3Active(btns['3']);
     setIsLoading(true);
-    setLoaderType(1);
+    setLoaderType(Number(type));
     setTimeout(() => {
       setIsLoading(false);
-      setBcType(1);
-    }, 1);
-  }
-
-  const setActiveB2 = () => {
-    setBt1Active(false);
-    setBt3Active(false);
-    setBt2Active(true);
-    setIsLoading(true);
-    setLoaderType(2);
-    setTimeout(() => {
-      setIsLoading(false);
-      setBcType(2);
-    }, 1);
-  }
-
-  const setActiveB3 = () => {
-    setBt1Active(false);
-    setBt2Active(false);
-    setBt3Active(true);
-    setIsLoading(true);
-    setLoaderType(3);
-    setTimeout(() => {
-      setIsLoading(false);
-      setBcType(3);
+      setBcType(Number(type));
     }, 1);
   }
 
@@ -195,21 +177,21 @@ function App() {
             <div className="btn-group">
               <button
                 className={bt1Active ? "btn-bctype active" : "btn-bctype"}
-                onClick={setActiveB1}
+                onClick={() => setActive(1)}
                 tabIndex={modalActive ? -1 : 0}
               >
                 <div className='img-type-1'/>
               </button>
               <button
                 className={bt2Active ? "btn-bctype active" : "btn-bctype"}
-                onClick={setActiveB2}
+                onClick={() => setActive(2)}
                 tabIndex={modalActive ? -1 : 0}
               >
                 <div className='img-type-2'/>
               </button>
               <button
                 className={bt3Active ? "btn-bctype active" : "btn-bctype"}
-                onClick={setActiveB3}
+                onClick={() => setActive(3)}
                 tabIndex={modalActive ? -1 : 0}
               >
                 <div className='img-type-3'/>
