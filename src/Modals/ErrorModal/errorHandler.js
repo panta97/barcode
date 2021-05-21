@@ -46,7 +46,8 @@ const correctCodeFormat = (lblsUniq, filename) => {
       errorMsg.push('desc vacío');
     }
     // odoo error price is zero
-    if(lblsUniq[i].price === 'S/ 0.00') {
+    // if(lblsUniq[i].price === 'S/ 0.00' || lblsUniq[i].price === 'S/ 0.00') {
+    if(/^.+0\.00/.test(lblsUniq[i].price)) {
       errorHandler.validCode = false;
       validCode = false;
       errorMsg.push('precio es cero');
