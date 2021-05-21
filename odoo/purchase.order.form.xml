@@ -33,7 +33,7 @@
                         <h1>
                             <field name="name" readonly="1"/>
                         </h1>
-                        <span style="position: relative; bottom: 13px; margin: 0; color: #008784; cursor: pointer;" onclick="if(/\d+/.test(document.getElementsByClassName('o_field_char o_field_widget o_readonly_modifier o_required_modifier')[0].textContent)) {window.open('https://panta97.github.io/barcode/?api=[api_url]\u0026key=[key]\u0026poId=' + String(Number(/\d+/.exec(document.getElementsByClassName('o_field_char o_field_widget o_readonly_modifier o_required_modifier')[0].textContent)[0])),'_blank')}"
+                        <span style="position: relative; bottom: 13px; margin: 0; color: #008784; cursor: pointer;" onclick="if ( /^https:.+#id=(\d+).+model=(\w+\.\w+)/.test(window.location.href) ) { const [_, id, model] = /^https:.+#id=(\d+).+model=(\w+\.\w+)/.exec(window.location.href); window.open( 'https://panta97.github.io/barcode/?api=[api_url]\u0026key=[key]\u0026id=' + id + '\u0026model=' + model, '_blank' ); }"
 >BARCODE</span>
                     </div>
                     <group>
