@@ -28,3 +28,4 @@ mocks/
 env
 
 .env
+__pycache__

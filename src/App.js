@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { parse as PapaParse } from 'papaparse';
+import React, { useEffect, useRef, useState } from 'react';
+import './animation.css';
+import getPurchaseOrder from "./api/purchaseOrder";
 import './App.css';
 import './btngroup.css';
-import './modal.css';
-import './animation.css';
-import QttyModal from './Modals/QttyModal/QttyModal';
 import Labels from './Label/Labels';
 import Loader from './Loader/Loader';
+import './modal.css';
 import correctCodeFormat from './Modals/ErrorModal/errorHandler';
-import getLabel from './utils/label';
 import ErrorModal from './Modals/ErrorModal/ErrorModal';
-import getPurchaseOrder from "./api/purchaseOrder";
+import QttyModal from './Modals/QttyModal/QttyModal';
+import getLabel from './utils/label';
 
 function App() {
 
@@ -89,7 +89,8 @@ function App() {
       if (params.has('api')) {
         setIsLoading(true);
         // set purchase order id as filename
-        setFilename(`PO${params.get('poId').padStart(5, '0')}`);
+        if(params.get('model') === 'purchase.order')
+          setFilename(`PO${params.get('poId').padStart(5, '0')}`);
         urlLabels = getLabel(await getPurchaseOrder(params), 'LAMBDA');
         // check errors in case there are
         const error = correctCodeFormat(urlLabels, 'api-file');
