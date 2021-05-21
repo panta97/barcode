@@ -90,7 +90,7 @@ function App() {
         setIsLoading(true);
         // set purchase order id as filename
         if(params.get('model') === 'purchase.order')
-          setFilename(`PO${params.get('poId').padStart(5, '0')}`);
+          setFilename(`PO${params.get('id').padStart(5, '0')}`);
         urlLabels = getLabel(await getPurchaseOrder(params), 'LAMBDA');
         // check errors in case there are
         const error = correctCodeFormat(urlLabels, 'api-file');
