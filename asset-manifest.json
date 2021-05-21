@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/barcode/static/css/main.a9d58fda.chunk.css",
-    "main.js": "/barcode/static/js/main.d49989ff.chunk.js",
+    "main.css": "/barcode/static/css/main.f6ebd591.chunk.css",
+    "main.js": "/barcode/static/js/main.ceac160b.chunk.js",
     "runtime-main.js": "/barcode/static/js/runtime-main.482fbc80.js",
-    "static/js/2.c51abe6b.chunk.js": "/barcode/static/js/2.c51abe6b.chunk.js",
+    "static/js/2.43d1ca83.chunk.js": "/barcode/static/js/2.43d1ca83.chunk.js",
     "index.html": "/barcode/index.html",
-    "precache-manifest.e1e62ccbf4cbaffac95a5e91e4619a74.js": "/barcode/precache-manifest.e1e62ccbf4cbaffac95a5e91e4619a74.js",
+    "precache-manifest.68626971bf58cf817e591e5809cadd4a.js": "/barcode/precache-manifest.68626971bf58cf817e591e5809cadd4a.js",
     "service-worker.js": "/barcode/service-worker.js",
-    "static/js/2.c51abe6b.chunk.js.LICENSE.txt": "/barcode/static/js/2.c51abe6b.chunk.js.LICENSE.txt",
+    "static/js/2.43d1ca83.chunk.js.LICENSE.txt": "/barcode/static/js/2.43d1ca83.chunk.js.LICENSE.txt",
     "static/media/App.css": "/barcode/static/media/type3.284fc72a.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.482fbc80.js",
-    "static/js/2.c51abe6b.chunk.js",
-    "static/css/main.a9d58fda.chunk.css",
-    "static/js/main.d49989ff.chunk.js"
+    "static/js/2.43d1ca83.chunk.js",
+    "static/css/main.f6ebd591.chunk.css",
+    "static/js/main.ceac160b.chunk.js"
   ]
 }
