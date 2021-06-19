@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import Productqq from "./Productqq";
 
 function QttyModal({labels, setLabelsUniq, setModalActive, modalActive, setIsLoading}) {
@@ -55,7 +56,7 @@ function QttyModal({labels, setLabelsUniq, setModalActive, modalActive, setIsLoa
     }, 1);
   };
 
-  return (
+  return createPortal(
     <div role="dialog"
         className={modalActive ? "modal display-block" : "modal display-none"}
       >
@@ -96,7 +97,7 @@ function QttyModal({labels, setLabelsUniq, setModalActive, modalActive, setIsLoa
           </div>
         </section>
       </div>
-  )
+  , document.getElementById('portal'))
 }
 
 export default QttyModal;

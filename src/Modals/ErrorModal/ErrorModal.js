@@ -1,7 +1,8 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 
 function ErrorModal({errorMsgs, closeErrorModal}) {
-  return (
+  return createPortal(
     <div role="dialog" className='modal display-block'>
         <div className="modal-error">
           <p className="text-error">ERROR</p>
@@ -34,7 +35,7 @@ function ErrorModal({errorMsgs, closeErrorModal}) {
           </div>
         </div>
       </div>
-  );
+  , document.getElementById('portal'));
 }
 
 export default ErrorModal;
