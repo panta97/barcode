@@ -27,6 +27,14 @@ function QttyModal({labels, setLabelsUniq, setModalActive, modalActive, setIsLoa
     setLabelsModal(newLabelsqq);
   };
 
+  const handleSetAllQtt = (value) => {
+    const newLabelsqq = labelsModal.map(label => {
+      label.qtt = value
+      return label;
+    });
+    setLabelsModal(newLabelsqq);
+  }
+
   const cancelQqs = () => {
     setModalActive(false);
     const labelsModal = labels.map(lbl => {
@@ -91,9 +99,17 @@ function QttyModal({labels, setLabelsUniq, setModalActive, modalActive, setIsLoa
             </tbody>
           </table>
           <div className="bottom-btns">
-            <button className="btn btn-success" onClick={confirmQqs}>
-              Aceptar
+            <button className="btn btn-success" onClick={() => handleSetAllQtt(0)}>
+              Poner todo a cero
             </button>
+            <div>
+              <button className="btn btn-danger" onClick={cancelQqs}>
+                Cancelar
+              </button>
+              <button className="btn btn-success" onClick={confirmQqs}>
+                Aceptar
+              </button>
+            </div>
           </div>
         </section>
       </div>

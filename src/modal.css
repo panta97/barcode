@@ -152,7 +152,7 @@
 
 .bottom-btns {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .bottom-btns button {
@@ -171,11 +171,10 @@
   border: 1px solid #D80032;
   background-color: #EF233C;
   color: #ffffff;
-  transition: background-color .5s;
+  /* transition: background-color .5s; */
 }
 
-.btn-danger:hover,
-.btn-danger:focus {
+.btn-danger:hover {
   border: 1px solid #D80032;
   background-color: #ffffff;
   color: #EF233C;
@@ -185,11 +184,10 @@
   border: 1px solid #2B2D42;
   background-color: #8D99AE;
   color: #2B2D42;
-/*   transition: background-color .5s; */
+  /* transition: background-color .5s; */
 }
 
-.btn-success:hover,
-.btn-success:focus {
+.btn-success:hover {
   border: 1px solid #2B2D42;
   background-color: #ffffff;
   color: #2B2D42;
