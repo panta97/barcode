@@ -1,4 +1,5 @@
 from odoo.rpc import get_model
+from datetime import datetime, timedelta
 
 
 def get_purchase_order_sheet(env, po_id):
@@ -57,12 +58,15 @@ def get_purchase_order_sheet(env, po_id):
             }
         )
 
+    date_obj = datetime.strptime(
+        order[0]["date_order"], "%Y-%m-%d %H:%M:%S"
+    ) - timedelta(hours=5)
     return {
         "statusCode": 200,
         "allLabels": "ALL" if len(order_line) == len(products) else "INCOMPLETE",
         "order_details": {
             "username": order[0]["create_uid"][1],
-            "datetime": order[0]["date_order"],
+            "datetime": datetime.strftime(date_obj, "%Y-%m-%d %H:%M:%S"),
             "name": order[0]["name"],
             "partner_name": order[0]["partner_id"][1],
             "partner_ref": order[0]["partner_ref"] if order[0]["partner_ref"] else "",
