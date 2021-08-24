@@ -215,60 +215,59 @@
 }
 
 /* TYPE 04 */
+.type-4 {
+  background-color: white;
+  width: 5cm;
+  height: 2.5cm;
+  margin-bottom: 5px;
+}
+
 .type-4 h2,
 .type-4 p {
   margin: 0;
 }
 
-.type-4 .price {
-  font-size: .9rem;
+
+.type-4 p {
+  font-size: 8px;
+  font-weight: 400;
 }
 
-.type-4 .code {
-  font-size: .5rem;
+.type-4 .cat,
+.type-4 .desc {
+  overflow: hidden;
+}
+
+.type-4 .price {
+  height: 48px;
+  font-size: .8rem;
+  font-weight: 500;
 }
 
 .type-4 .container {
-  background-color: white;
-  width: 5cm;
-  height: 2.5cm;
-  display: grid;
-  grid-template: auto / repeat(3, 1fr);
+  display: inline-grid;
+  grid-template: auto / 2fr 1fr;
+  height: 100%;
+  width: 100%;
+  padding: 0 5px;
 }
 
-.type-4 .block {
+.type-4 .desc,
+.type-4 .cat {
+  word-break: break-all;
+}
+
+.type-4 .left-side {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.type-4 .right-side {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  position: relative;
-}
-
-.type-4 .barcode {
-  width: 135%;
-  height: 15px;
-}
-
-.type-4 .price,
-.type-4 .barcode,
-.type-4 .code {
-  position: absolute;
-  transform: rotate(270deg) ;
-}
-
-.type-4 .price {
-  width: 2.2cm;
-  text-align: center;
-  left: -30px;
-}
-
-.type-4 .barcode {
-  left: -8px;
-}
-
-.type-4 .code {
-  width: 2.2cm;
-  text-align: center;
-  right: -30px;
+  justify-content: center;
 }
 
 

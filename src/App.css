@@ -82,8 +82,14 @@ body {
   height: 33px;
   background: #fff url('./img/type3.jpg');
 }
+.img-type-4 {
+  width: 66px;
+  height: 33px;
+  background: #fff url('./img/type4.jpg');
+}
 .img-type-1,
 .img-type-2,
-.img-type-3 {
+.img-type-3,
+.img-type-4 {
   background-size: contain;
 }

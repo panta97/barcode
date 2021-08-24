@@ -58,6 +58,14 @@ function Labels({bcType, labelsUniq}) {
         ))}
       </div>
     );
+  } else if (bcType === 4) {
+    htmlType = (
+      <div id="section-to-print-type2">
+        {labels.map((label, index) => (
+          <Barcode key={index} label={label} type={bcType} id={index}/>
+        ))}
+      </div>
+    );
   }
 
   return htmlType;

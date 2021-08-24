@@ -1,6 +1,6 @@
 import React from 'react';
-
 import "./Loader.css";
+
 
 function Loader({loaderType}) {
 
@@ -37,7 +37,7 @@ function Loader({loaderType}) {
         <div className="loader-type-1"></div>
       </div>
     );
-  } else if (loaderType === 2 || loaderType === 3) {
+  } else if (loaderType === 2 || loaderType === 3 || loaderType === 4) {
     return (
     <div id="section-to-print-type2">
         <div className="loader-type-2"></div>

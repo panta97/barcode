@@ -1,5 +1,5 @@
-import React from "react";
 import QRCode from "qrcode.react";
+import React from "react";
 import "./Barcode.css";
 
 function Barcode({label: {code, desc, mCode, cats, price, attr}, type, id}) {
@@ -61,6 +61,30 @@ function Barcode({label: {code, desc, mCode, cats, price, attr}, type, id}) {
         </div>
       </div>
     );
+  } else if (type === 4) {
+    return (
+      <div className="type-4">
+        <div className="container">
+          <div className="left-side">
+            <h2 className="price">{desc}</h2>
+            <p className="cat">{cats}</p>
+            <p className="fa-code">{code}</p>
+            <p className="fa-code">{mCode}</p>
+          </div>
+          <div className="right-side">
+            <div className="barcode">
+              <QRCode
+                value={code}
+                size={50}
+                level={"H"}
+                renderAs={"svg"}
+              ></QRCode>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+
   }
 }
 

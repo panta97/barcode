@@ -22,6 +22,7 @@ function App() {
   const [bt1Active, setBt1Active] = useState(true);
   const [bt2Active, setBt2Active] = useState(false);
   const [bt3Active, setBt3Active] = useState(false);
+  const [bt4Active, setBt4Active] = useState(false);
 
   const [modalActive, setModalActive] = useState(false);
 
@@ -111,11 +112,13 @@ function App() {
       '1': false,
       '2': false,
       '3': false,
+      '4': false,
     };
     btns[String(type)] = true;
     setBt1Active(btns['1']);
     setBt2Active(btns['2']);
     setBt3Active(btns['3']);
+    setBt4Active(btns['4']);
     setIsLoading(true);
     setLoaderType(Number(type));
     setTimeout(() => {
@@ -196,6 +199,13 @@ function App() {
                 tabIndex={modalActive ? -1 : 0}
               >
                 <div className='img-type-3'/>
+              </button>
+              <button
+                className={bt4Active ? "btn-bctype active" : "btn-bctype"}
+                onClick={() => setActive(4)}
+                tabIndex={modalActive ? -1 : 0}
+              >
+                <div className='img-type-4'/>
               </button>
             </div>
           </div>
