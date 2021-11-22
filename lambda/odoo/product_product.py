@@ -2,7 +2,7 @@ from odoo.rpc import get_model
 from functools import reduce
 
 
-def get_product_product(env, pp_id):
+def get_product_product(proxy, pp_id):
     # pp = product.product
     pp_table = "product.product"
     pp_filter = [[["id", "=", pp_id]]]
@@ -17,7 +17,7 @@ def get_product_product(env, pp_id):
         "product_tmpl_id",
     ]
     # GET PRODUCTS WITH FILTERED PRODUCT IDS
-    products = get_model(env, pp_table, pp_filter, pp_fields)
+    products = get_model(proxy, pp_table, pp_filter, pp_fields)
 
     # FILTER ATTRIBUTE IDS
     # [[12,23], [232,23]]
@@ -31,7 +31,7 @@ def get_product_product(env, pp_id):
     pav_table = "product.attribute.value"
     pav_filter = [[["id", "in", attribute_value_ids]]]
     pav_fields = ["display_name"]
-    attribute_values = get_model(env, pav_table, pav_filter, pav_fields)
+    attribute_values = get_model(proxy, pav_table, pav_filter, pav_fields)
 
     # CREATE LIST LABEL DICT
     labels = []

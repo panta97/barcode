@@ -2,19 +2,19 @@ from odoo.rpc import get_model
 from datetime import datetime, timedelta
 
 
-def get_purchase_order_sheet(env, po_id):
+def get_purchase_order_sheet(proxy, po_id):
     # po = purchase.order
     po_table = "purchase.order"
     po_filter = [[["id", "=", po_id]]]
     po_fields = ["name", "date_order", "create_uid", "partner_ref", "partner_id"]
 
-    order = get_model(env, po_table, po_filter, po_fields)
+    order = get_model(proxy, po_table, po_filter, po_fields)
 
     # pol = purchase.order.line
     pol_table = "purchase.order.line"
     pol_filter = [[["order_id", "=", po_id]]]
     pol_fields = ["product_id", "product_qty", "date_planned"]
-    order_line = get_model(env, pol_table, pol_filter, pol_fields)
+    order_line = get_model(proxy, pol_table, pol_filter, pol_fields)
 
     if len(order_line) == 0:
         return {
@@ -34,7 +34,7 @@ def get_purchase_order_sheet(env, po_id):
         "product_tmpl_id",
     ]
     # GET PRODUCTS WITH FILTERED PRODUCT IDS
-    products = get_model(env, pp_table, pp_filter, pp_fields)
+    products = get_model(proxy, pp_table, pp_filter, pp_fields)
 
     # CREATE ORDER_LINE LIST DICT
     order_lines = []

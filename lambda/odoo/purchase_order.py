@@ -2,12 +2,12 @@ from odoo.rpc import get_model
 from functools import reduce
 
 
-def get_purchase_order(env, po_id):
+def get_purchase_order(proxy, po_id):
     # pol = purchase.order.line
     pol_table = "purchase.order.line"
     pol_filter = [[["order_id", "=", po_id]]]
     pol_fields = ["product_id", "product_qty"]
-    order_line = get_model(env, pol_table, pol_filter, pol_fields)
+    order_line = get_model(proxy, pol_table, pol_filter, pol_fields)
 
     if len(order_line) == 0:
         return {
@@ -32,7 +32,7 @@ def get_purchase_order(env, po_id):
         "product_tmpl_id",
     ]
     # GET PRODUCTS WITH FILTERED PRODUCT IDS
-    products = get_model(env, pp_table, pp_filter, pp_fields)
+    products = get_model(proxy, pp_table, pp_filter, pp_fields)
 
     # FILTER ATTRIBUTE IDS
     # [[12,23], [232,23]]
@@ -46,7 +46,7 @@ def get_purchase_order(env, po_id):
     pav_table = "product.attribute.value"
     pav_filter = [[["id", "in", attribute_value_ids]]]
     pav_fields = ["display_name"]
-    attribute_values = get_model(env, pav_table, pav_filter, pav_fields)
+    attribute_values = get_model(proxy, pav_table, pav_filter, pav_fields)
 
     # CREATE LIST LABEL DICT
     labels = []

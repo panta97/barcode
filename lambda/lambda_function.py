@@ -1,4 +1,5 @@
-from odoo.rpc import get_env
+import os
+from xmlrpc import client as xmlrpclib
 from odoo.purchase_order import get_purchase_order
 from odoo.product_template import get_product_template
 from odoo.product_product import get_product_product
@@ -12,14 +13,14 @@ def lambda_handler(event, context):
         return {"message": "pong"}
 
     # GET ENVIRONMENT VARIABLES
-    env = get_env()
+    proxy = xmlrpclib.ServerProxy("{}/xmlrpc/2/object".format(os.environ["URL"]))
 
     # GET PURCHASE ORDER ID FROM GATEWAY API
     if event["model"] == "purchase.order":
-        return get_purchase_order(env, event["id"])
+        return get_purchase_order(proxy, event["id"])
     elif event["model"] == "product.template":
-        return get_product_template(env, event["id"])
+        return get_product_template(proxy, event["id"])
     elif event["model"] == "product.product":
-        return get_product_product(env, event["id"])
+        return get_product_product(proxy, event["id"])
     elif event["model"] == "purchase.order.sheet":
-        return get_purchase_order_sheet(env, event["id"])
+        return get_purchase_order_sheet(proxy, event["id"])
