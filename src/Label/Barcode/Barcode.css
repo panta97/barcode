@@ -326,19 +326,23 @@
 
 
   .type-2:nth-child(odd),
-  .type-3:nth-child(odd){
+  .type-3:nth-child(odd),
+  .type-4:nth-child(odd) {
     margin-right: 3.5mm;
   }
 
   .type-2,
-  .type-3 {
+  .type-3,
+  .type-4 {
     margin-bottom: 1.99mm;
   }
 
   .type-2:nth-last-child(1),
   .type-2:nth-last-child(2),
   .type-3:nth-last-child(1),
-  .type-3:nth-last-child(2) {
+  .type-3:nth-last-child(2),
+  .type-4:nth-last-child(1),
+  .type-4:nth-last-child(2) {
     margin-bottom: 0;
   }
 
