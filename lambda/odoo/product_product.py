@@ -13,32 +13,35 @@ def get_product_product(proxy, pp_id):
         "default_code",
         "categ_id",
         "lst_price",
-        "attribute_value_ids",
+        "product_template_attribute_value_ids",
         "product_tmpl_id",
     ]
     # GET PRODUCTS WITH FILTERED PRODUCT IDS
     products = get_model(proxy, pp_table, pp_filter, pp_fields)
 
-    # FILTER ATTRIBUTE IDS
+    # FILTER ATTRIBUTE VALUE IDS
     # [[12,23], [232,23]]
-    attribute_value_ids = list(map(lambda e: e["attribute_value_ids"], products))
+    attribute_value_ids = list(
+        map(lambda e: e["product_template_attribute_value_ids"], products)
+    )
     # [12,23,232,23]
     attribute_value_ids = reduce(list.__add__, attribute_value_ids)
     # [12,23,232]
     attribute_value_ids = list(set(attribute_value_ids))
 
-    # pav = product.attribute.value
-    pav_table = "product.attribute.value"
-    pav_filter = [[["id", "in", attribute_value_ids]]]
-    pav_fields = ["display_name"]
-    attribute_values = get_model(proxy, pav_table, pav_filter, pav_fields)
+    # ptav = product.template.attribute.value
+    ptav_table = "product.template.attribute.value"
+    ptav_filter = [[["id", "in", attribute_value_ids]]]
+    ptav_fields = ["display_name"]
+    attribute_values = get_model(proxy, ptav_table, ptav_filter, ptav_fields)
 
     # CREATE LIST LABEL DICT
     labels = []
 
     attribute = list(
         filter(
-            lambda e: e["id"] in products[0]["attribute_value_ids"], attribute_values
+            lambda e: e["id"] in products[0]["product_template_attribute_value_ids"],
+            attribute_values,
         )
     )
     labels.append(

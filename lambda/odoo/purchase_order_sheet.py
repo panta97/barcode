@@ -1,5 +1,6 @@
 from odoo.rpc import get_model
 from datetime import datetime, timedelta
+import odoo.shared as shr
 
 
 def get_purchase_order_sheet(proxy, po_id):
@@ -12,7 +13,7 @@ def get_purchase_order_sheet(proxy, po_id):
 
     # pol = purchase.order.line
     pol_table = "purchase.order.line"
-    pol_filter = [[["order_id", "=", po_id]]]
+    pol_filter = shr.get_pol_filter(po_id)
     pol_fields = ["product_id", "product_qty", "date_planned"]
     order_line = get_model(proxy, pol_table, pol_filter, pol_fields)
 
